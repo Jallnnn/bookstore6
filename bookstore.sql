@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `book` (
   `ISBN` int(11) NOT NULL DEFAULT '0',
-  `sellingPrice` int(11) NOT NULL,
+  `publisherPrice` int(11) NOT NULL,
   `date` date NOT NULL,
   `quantity` int(11) NOT NULL,
   ` shelf` int(11) NOT NULL
