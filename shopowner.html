@@ -6,4 +6,24 @@
 		
 	</head>
 	<body>
+		<section class="soldBookRegister">
+          <form class="soldBookRegisteringInfo">
+            <section class="soldRegisteringNotify">
+                <div class="soldRegisteredSuccess">Successfully registered!</div>
+                <div class="soldRegisteredError">Something went wrong, try again!</div>
+            </section>
+            <label for="isbn">ISBN:</label>
+            <input type="number" name="isbn" required>
+            <label for="amount">amount:</label>
+            <input type="number" name="amount" required>
+            <label for="date">sellingDate:</label>
+            <input type="date" name="sellingDate" placeholder="Please specify a date" required>
+
+
+
+            <input type="submit" value="Submit">
+          </form>
+          <section class="registeredSoldBooks">You registered:<p></p></section>
+          <button class="cancelSoldRegistering">Cancel</button>
+      </section>
 	</body>
