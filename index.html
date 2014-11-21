@@ -6,5 +6,25 @@
 		
 	</head>
 	<body>
+		<section class="registerBook">
+          <form class="bookRegisteringInfo">
+            <section class="registeringNotify">
+                <div class="registeredSuccess">Successfully registered!</div>
+                <div class="registeredError">Something went wrong, try again!</div>
+            </section>
+            <label for="isbn">ISBN:</label>
+            <input type="number" name="isbn" required>
+            <label for="sellingPrice">selling price:</label>
+            <input type="number" name="sellingPrice" required>
+            <label for="date">date:</label>
+            <input type="date" name="date" placeholder="Please specify a date" required>
+            <label for="quantity">quantity:</label>
+            <input type="number" name="quantity" required>
+
+            <input type="submit" value="Submit">
+          </form>
+          <section class="registeredBooks">You registered:<p></p></section>
+          <button class="cancelRegistering">Cancel</button>
+      </section>
 	</body>
 </html>
