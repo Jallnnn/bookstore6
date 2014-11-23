@@ -26,9 +26,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `book`
 --
 
-CREATE TABLE IF NOT EXISTS `registeredBooks` (
+CREATE TABLE IF NOT EXISTS `book` (
   `ISBN` int(11) NOT NULL DEFAULT '0',
-  `publisherPrice` int(11) NOT NULL,
+  `sellingPrice` int(11) NOT NULL,
   `date` date NOT NULL,
   `quantity` int(11) NOT NULL,
   ` shelf` int(11) NOT NULL
