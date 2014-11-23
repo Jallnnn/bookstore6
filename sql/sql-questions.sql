@@ -5,4 +5,4 @@
 # database: bookstore
 
 # register books
-INSERT INTO bookstore (isbn, publisherPrice, date, quantity, shelf) VALUES ({isbn}, {publisherPrice}, {date}, {quantity}, {shelf});
+INSERT INTO book (ISBN, publisherPrice, date, quantity, shelf) VALUES ({ISBN}, {publisherPrice}, {date}, {quantity}, {shelf});
