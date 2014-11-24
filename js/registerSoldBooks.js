@@ -16,7 +16,7 @@ $(function() {
    
       dataType: "json",
       data: {
-      sql: "sql-questions.sql",
+      sql: "sql/sql-questions.sql",
       
       run: "register sold books",
       
