@@ -5,7 +5,7 @@ $(function() {
     var bookRegisteringInfo={};
 
     $(regForm).find("input").not("input[type='submit']").each(function() {
-      bookRegisteringInfo[regForm.name] = $(regForm).val();
+      bookRegisteringInfo[this.name] = $(this).val();
     });
     console.log(bookRegisteringInfo);
 
