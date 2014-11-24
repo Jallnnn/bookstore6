@@ -8,7 +8,7 @@ $(function() {
       soldBookRegisteringInfo[this.name] = $(this).val();
 
     });
-
+      console.log(soldBookRegisteringInfo); 
 
    $.ajax({
    
