@@ -18,6 +18,9 @@ $(function() {
         sql: "sql/sql-questions.sql",
         run: "register books",
         isbn: JSON.stringify(bookRegisteringInfo["isbn"]),
+        tittle: JSON.stringify(bookRegisteringInfo["tittle"]),
+        firstName: JSON.stringify(bookRegisteringInfo["firstName"]),
+        lastName: JSON.stringify(bookRegisteringInfo["lastName"]),
         publisherPrice: JSON.stringify(bookRegisteringInfo["publisherPrice"]),
         quantity: JSON.stringify(bookRegisteringInfo["quantity"]),
         shelf: JSON.stringify(bookRegisteringInfo["shelf"])
