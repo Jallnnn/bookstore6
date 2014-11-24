@@ -21,8 +21,8 @@ $(function() {
       run: "register sold books",
       
       isbn: JSON.stringify(soldBookRegisteringInfo["isbn"]),
-      amount: JSON.stringify(soldBookRegisteringInfo["amount"]),
-      date: JSON.stringify(soldBookRegisteringInfo["date"])
+      amount: JSON.stringify(soldBookRegisteringInfo["amount"])
+ 
       },
       success: function(data) {
         console.log("registerSoldBooks success: ", data);

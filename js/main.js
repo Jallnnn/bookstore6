@@ -19,7 +19,6 @@ $(function() {
         run: "register books",
         isbn: JSON.stringify(bookRegisteringInfo["isbn"]),
         publisherPrice: JSON.stringify(bookRegisteringInfo["publisherPrice"]),
-        date: JSON.stringify(bookRegisteringInfo["date"]),
         quantity: JSON.stringify(bookRegisteringInfo["quantity"]),
         shelf: JSON.stringify(bookRegisteringInfo["shelf"])
       },
