@@ -5,7 +5,7 @@
 # database: bookstore
 
 # register books
-INSERT INTO book (ISBN, publisherPrice, date, quantity, shelf) VALUES ({ISBN}, {publisherPrice}, {date}, {quantity}, {shelf});
+INSERT INTO book (ISBN, publisherPrice, quantity, shelf) VALUES ({ISBN}, {publisherPrice}, {quantity}, {shelf});
 
 # register sold books
-INSERT INTO book (isbn, amount, date) VALUES ({isbn}, {amount}, {date});
+INSERT INTO book (isbn, amount) VALUES ({isbn}, {amount});
