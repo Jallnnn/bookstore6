@@ -18,7 +18,7 @@ $(function() {
         sql: "sql/sql-questions.sql",
         run: "register books",
         isbn: JSON.stringify(bookRegisteringInfo["isbn"]),
-        tittle: JSON.stringify(bookRegisteringInfo["tittle"]),
+        title: JSON.stringify(bookRegisteringInfo["title"]),
         firstName: JSON.stringify(bookRegisteringInfo["firstName"]),
         lastName: JSON.stringify(bookRegisteringInfo["lastName"]),
         publisherPrice: JSON.stringify(bookRegisteringInfo["publisherPrice"]),
@@ -36,7 +36,7 @@ $(function() {
     $(".bookRegisteringInfo").submit(function() {
       registerBooks(this);
 
-      return false
+      return false;
 
     });
 });
