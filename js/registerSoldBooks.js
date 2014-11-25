@@ -17,15 +17,17 @@ $(function() {
       dataType: "json",
       data: {
       sql: "sql/sql-questions.sql",
-      
       run: "register soldbooks",
       
       isbn: JSON.stringify(soldBookRegisteringInfo["isbn"]),
-      amount: JSON.stringify(soldBookRegisteringInfo["amount"])
+      amout: JSON.stringify(soldBookRegisteringInfo["amout"])
  
       },
       success: function(data) {
         console.log("registerSoldBooks success: ", data);
+      },
+      error: function(data) {
+        console.log("great success",data);
       }
     });
   }
