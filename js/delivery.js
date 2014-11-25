@@ -16,9 +16,9 @@ $(function() {
       data: {
         // Read SQL questions from this file
         sql: "sql/sql-questions.sql",
-        run: "register books",
-        firstName: JSON.stringify(bookRegisteringInfo["firstName"]),
-        lastName: JSON.stringify(bookRegisteringInfo["lastName"])
+        run: "register author",
+        fname: JSON.stringify(bookRegisteringInfo["fname"]),
+        lname: JSON.stringify(bookRegisteringInfo["lname"])
       },
       // When we have got an response from the server
       // run something

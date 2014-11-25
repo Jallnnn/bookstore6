@@ -4,8 +4,8 @@
 # password: mysql
 # database: bookstore
 
-# register books
-INSERT INTO book (ISBN, publisherPrice, quantity, shelf) VALUES ({ISBN}, {publisherPrice}, {quantity}, {shelf});
+# register author
+INSERT INTO book (fname, lname) VALUES ({fname}, {lname});
 
 # register soldbooks
 INSERT INTO sale (isbn, qty) VALUES ({isbn}, {qty});
