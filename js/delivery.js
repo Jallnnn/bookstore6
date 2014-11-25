@@ -1,6 +1,6 @@
 $(function() {
 
-  function registerBooks(regForm) {
+  function registerAuthors(regForm) {
 
     var bookRegisteringInfo={};
 
@@ -17,24 +17,22 @@ $(function() {
         // Read SQL questions from this file
         sql: "sql/sql-questions.sql",
         run: "register books",
-        isbn: JSON.stringify(bookRegisteringInfo["isbn"]),
-        title: JSON.stringify(bookRegisteringInfo["title"]),
         firstName: JSON.stringify(bookRegisteringInfo["firstName"]),
-        lastName: JSON.stringify(bookRegisteringInfo["lastName"]),
-        publisherPrice: JSON.stringify(bookRegisteringInfo["publisherPrice"]),
-        qty: JSON.stringify(bookRegisteringInfo["qty"]),
-        shelf: JSON.stringify(bookRegisteringInfo["shelf"])
+        lastName: JSON.stringify(bookRegisteringInfo["lastName"])
       },
       // When we have got an response from the server
       // run something
       success: function(data) {
-        console.log("registerBooks success: ", data);
+        console.log("registerAuthors success: ", data);
       },
+      error: function(data){
+        console.log("Great error:",data)
+      }
     });
 
     }
     $(".bookRegisteringInfo").submit(function() {
-      registerBooks(this);
+      registerAuthors(this);
 
       return false;
 
