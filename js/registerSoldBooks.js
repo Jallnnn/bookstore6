@@ -20,7 +20,7 @@ $(function() {
         run: "register soldbooks",
         
         isbn: soldBookRegisteringInfo["isbn"],
-        amount: soldBookRegisteringInfo["amount"]
+        qty: soldBookRegisteringInfo["qty"]
  
       },
       success: function(data) {
