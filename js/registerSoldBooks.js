@@ -8,26 +8,26 @@ $(function() {
       soldBookRegisteringInfo[this.name] = $(this).val();
 
     });
-      console.log(soldBookRegisteringInfo); 
+      console.log(soldBookRegisteringInfo);
 
    $.ajax({
    
-      url:"libs/sql-ajax-json.php",
+      url:"../libs/sql-ajax-json.php",
    
       dataType: "json",
       data: {
-      sql: "sql/sql-questions.sql",
-      run: "register soldbooks",
-      
-      isbn: JSON.stringify(soldBookRegisteringInfo["isbn"]),
-      amout: JSON.stringify(soldBookRegisteringInfo["amout"])
+        sql: "sql/sql-questions.sql",
+        run: "register soldbooks",
+        
+        isbn: soldBookRegisteringInfo["isbn"],
+        amount: soldBookRegisteringInfo["amount"]
  
       },
       success: function(data) {
         console.log("registerSoldBooks success: ", data);
       },
       error: function(data) {
-        console.log("great success",data);
+        console.log("great error",data.responseText);
       }
     });
   }

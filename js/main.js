@@ -11,7 +11,7 @@ $(function() {
 
     $.ajax({
       // Use Nodebite's little black box
-      url:"libs/sql-ajax-json.php",
+      url:"../libs/sql-ajax-json.php",
       datatype: "json",
       data: {
         // Read SQL questions from this file
