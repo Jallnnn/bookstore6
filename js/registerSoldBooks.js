@@ -20,14 +20,16 @@ $(function() {
         run: "register soldbooks",
         
         isbn: soldBookRegisteringInfo["isbn"],
-        qty: soldBookRegisteringInfo["qty"]
+        amount: soldBookRegisteringInfo["amount"]
  
       },
       success: function(data) {
         console.log("registerSoldBooks success: ", data);
+        $(".registeredSoldBooks").show();
       },
       error: function(data) {
         console.log("great error",data.responseText);
+        $(".cancelSoldRegistering").show();
       }
     });
   }
