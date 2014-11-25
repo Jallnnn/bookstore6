@@ -81,3 +81,10 @@ ul li {
 .cancelSoldRegistering {
 	display: none;
 }
+
+.bookNoExist{
+	background-color:#FA2525;
+	width:350px;
+	padding:10px;
+	margin-bottom:10px;
+}
