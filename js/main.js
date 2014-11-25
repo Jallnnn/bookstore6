@@ -22,7 +22,7 @@ $(function() {
         firstName: JSON.stringify(bookRegisteringInfo["firstName"]),
         lastName: JSON.stringify(bookRegisteringInfo["lastName"]),
         publisherPrice: JSON.stringify(bookRegisteringInfo["publisherPrice"]),
-        quantity: JSON.stringify(bookRegisteringInfo["quantity"]),
+        qty: JSON.stringify(bookRegisteringInfo["qty"]),
         shelf: JSON.stringify(bookRegisteringInfo["shelf"])
       },
       // When we have got an response from the server
