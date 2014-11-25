@@ -1,3 +1,8 @@
+body {
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+}
+
 ul {
   text-align: center;
   margin-top:30px;
@@ -13,4 +18,36 @@ ul li {
  	text-decoration:none;
  }
 
+.registerBook, .soldBookRegister {
+	margin: 40px 0 0 30px;
+}
+
+.bookRegisteringInfo, .soldBookRegisteringInfo {
+	width: 30%;
+ 	margin: 10px;
+ 	display: inline-block;
+}
+
+.bookRegisteringInfo input, .soldBookRegisteringInfo input {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.registeringNotify div, .soldRegisteringNotify div {
+	display: none;
+}
+
+.registeringNotify .registeredSuccess, .soldRegisteringNotify .soldRegisteredSuccess {
+	background-color: #7EDD1E;
+	padding: 5px;
+}
+
+.registeringNotify .registeredError, .soldRegisteringNotify .soldRegisteredError {
+	background-color: #FA2525;
+	padding: 5px;
+}
+
+.cancelRegistering, .cancelSoldRegistering {
+	margin: 10px;
+}
 
