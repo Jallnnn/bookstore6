@@ -7,5 +7,5 @@
 # register books
 INSERT INTO book (ISBN, publisherPrice, quantity, shelf) VALUES ({ISBN}, {publisherPrice}, {quantity}, {shelf});
 
-# register sold books
+# register soldbooks
 INSERT INTO sale (isbn, amount) VALUES ({isbn}, {amount});

@@ -18,7 +18,7 @@ $(function() {
       data: {
       sql: "sql/sql-questions.sql",
       
-      run: "register sold books",
+      run: "register soldbooks",
       
       isbn: JSON.stringify(soldBookRegisteringInfo["isbn"]),
       amount: JSON.stringify(soldBookRegisteringInfo["amount"])
