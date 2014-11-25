@@ -20,26 +20,45 @@
         <li><a href="hej.html">Rapport</a></li>
       </ul>
     </header>
+
 		<section class="soldBookRegister">
       <h2>Sales Form</h2>
-          <form class="soldBookRegisteringInfo">
-            <section class="soldRegisteringNotify">
-                <div class="soldRegisteredSuccess">Successfully registered!</div>
-                <div class="soldRegisteredError">Something went wrong, try again!</div>
-            </section>
-            <label for="isbn">ISBN:</label>
-            <input type="number" name="isbn" required>
-            <label for="amount">Amount:</label>
-            <input type="number" name="amount" required>
 
+      <form class="soldBookRegisteringInfo">
+        <section class="soldRegisteringNotify">
+          <div class="soldRegisteredSuccess">Successfully registered!</div>
+          <div class="soldRegisteredError">Something went wrong, try again!</div>
+        </section>
+          <label for="isbn">ISBN:</label>
+          <input type="number" name="isbn" required>
+          <label for="amount">Amount:</label>
+          <input type="number" name="amount" required>
 
+          <input type="submit" value="Submit">
+      </form>
+        <section class="registeredSoldBooks">You registered:<p></p></section>
+        <button class="cancelSoldRegistering">Cancel</button>  
+    </section>
 
+    <section class="updatePrice">
+      <h2>Update Price Form</h2>
 
-            <input type="submit" value="Submit">
-          </form>
-          <section class="registeredSoldBooks">You registered:<p></p></section>
-          <button class="cancelSoldRegistering">Cancel</button>
-      </section>
+      <form class="updatePriceInfo">
+        <section class="UpdatePriceNotify">
+          <div class="updatePriceSuccess">Successfully registered!</div>
+          <div class="updatePriceError">Something went wrong, try again!</div>
+        </section>
+          <label for="isbn">ISBN:</label>
+          <input type="number" name="isbn" required>
+          <label for="salePrice">Sales Price:</label>
+          <input type="number" name="salePrice" required>
+
+          <input type="submit" value="Submit">
+      </form>
+        <section class="registeredUpdatePrice">Price update:<p></p></section>
+        <button class="cancelUpdatePrice">Cancel</button>
+    </section>
+
     <footer>
     </footer>
 	</body>
