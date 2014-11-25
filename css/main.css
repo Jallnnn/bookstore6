@@ -3,6 +3,12 @@ body {
   font-size: 15px;
 }
 
+main {
+  display: block;
+  width: 900px;
+  margin: 0 auto;
+}
+
 h2 {
 	font-size: 30px;
 	margin: 0 0 20px 10px;
@@ -25,12 +31,12 @@ ul li {
  }
 
 .registerBook, .soldBookRegister, .updatePrice {
-	margin: 40px 0 0 30px;
+	margin: 60px;
 }
 
 .bookRegisteringInfo, .soldBookRegisteringInfo, .updatePriceInfo {
 	width: 30%;
- 	margin: 10px;
+ 	margin: 20px 30px;
  	display: inline-block;
 }
 
@@ -57,16 +63,14 @@ ul li {
 	margin: 10px;
 }
 
-.soldBookRegister {
+.soldBookRegister, .registerBook {
 	background-color: #E0EBEB;
-	width: 400px;
 	padding: 10px;
-	margin-bottom: 150px;
 }
 
 .updatePrice {
 	background-color: #E0EBE6;
-	width: 400px;
 	padding: 10px;
+	margin-top: 100px;
 }
 
