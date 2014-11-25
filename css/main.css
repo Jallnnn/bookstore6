@@ -24,36 +24,49 @@ ul li {
  	text-decoration:none;
  }
 
-.registerBook, .soldBookRegister {
+.registerBook, .soldBookRegister, .updatePrice {
 	margin: 40px 0 0 30px;
 }
 
-.bookRegisteringInfo, .soldBookRegisteringInfo {
+.bookRegisteringInfo, .soldBookRegisteringInfo, .updatePriceInfo {
 	width: 30%;
  	margin: 10px;
  	display: inline-block;
 }
 
-.bookRegisteringInfo input, .soldBookRegisteringInfo input {
+.bookRegisteringInfo input, .soldBookRegisteringInfo input, .updatePriceInfo input {
 	display: block;
 	margin-bottom: 10px;
 }
 
-.registeringNotify div, .soldRegisteringNotify div {
+.registeringNotify div, .soldRegisteringNotify div, .UpdatePriceNotify div {
 	display: none;
 }
 
-.registeringNotify .registeredSuccess, .soldRegisteringNotify .soldRegisteredSuccess {
+.registeringNotify .registeredSuccess, .soldRegisteringNotify .soldRegisteredSuccess, .UpdatePriceNotify .updatePriceSuccess {
 	background-color: #7EDD1E;
 	padding: 5px;
 }
 
-.registeringNotify .registeredError, .soldRegisteringNotify .soldRegisteredError {
+.registeringNotify .registeredError, .soldRegisteringNotify .soldRegisteredError, .UpdatePriceNotify .updatePriceError {
 	background-color: #FA2525;
 	padding: 5px;
 }
 
-.cancelRegistering, .cancelSoldRegistering {
+.cancelRegistering, .cancelSoldRegistering, .cancelUpdatePrice {
 	margin: 10px;
+}
+
+.soldBookRegister {
+	background-color: #E0EBEB;
+	width: 400px;
+	padding: 10px;
+	margin-bottom: 150px;
+}
+
+.updatePrice {
+	background-color: #E0EBE6;
+	width: 400px;
+	padding: 10px;
 }
 
