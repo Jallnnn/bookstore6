@@ -4,8 +4,11 @@
 # password: mysql
 # database: bookstore
 
+# get author
+SELECT * FROM authors WHERE fname = {fname} AND lname = {lname};
+
 # register author
-INSERT INTO book (fname, lname) VALUES ({fname}, {lname});
+INSERT INTO authors (fname, lname) VALUES ({fname}, {lname});
 
 # register soldbooks
 INSERT INTO sale (isbn, qty) VALUES ({isbn}, {qty});
