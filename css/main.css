@@ -76,6 +76,10 @@ ul li {
 
 .registeredSoldBooks {
 	display: none;
+	background-color:green;
+	width:350px;
+	padding:10px;
+	margin-bottom:10px;
 }
 
 .cancelSoldRegistering {
