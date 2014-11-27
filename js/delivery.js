@@ -52,7 +52,13 @@ $function() {
     });
 
   } 
-
   
+  $(".bookRegisteringInfo").submit(function() {
+    var formInfo = {};
+    $(this).find("input").not("input[type='submit']").each(function() {
+      formInfo[this.name] = $(this).val();
+    });
+    currentAuthors(formInfo);
+    return false
 
 });
