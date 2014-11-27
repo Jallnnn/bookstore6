@@ -4,7 +4,7 @@
 # password: mysql
 # database: bookstore
 
-# get author
+# get authors
 SELECT * FROM authors;
 
 # register author
