@@ -1,12 +1,9 @@
 $(function() {
 
+  var registerFpriceInfo = {};
+
+    
   function registerFprice(thisForm) {
-
-    var registerFpriceInfo = {};
-
-    $(thisForm).find("input").not("input[type='submit']").each(function() {
-      registerFpriceInfo[this.name] = $(this).val();
-    });
 
     console.log("registerFpriceInfo: ", registerFpriceInfo);
 
@@ -17,8 +14,25 @@ $(function() {
       data: {
         sql: "sql/sql-questions.sql",
         run: "register fprice",
-        isbn: registerFpriceInfo["isbn"],
         f_price: registerFpriceInfo["f_price"]
+      },
+
+      success: mathsFprice,
+      
+    });
+  }
+
+  function mathsFprice(thisForm) {
+
+    $.ajax({
+     
+      url:"../libs/sql-ajax-json.php",
+      dataType: "json",
+      data: {
+        sql: "sql/sql-questions.sql",
+        run: "calculate saleprice",
+        // isbn: registerFpriceInfo["isbn"],
+        salePrice: registerFprice["salePrice"]
       },
 
       success: function(data) {
@@ -33,6 +47,11 @@ $(function() {
   }
 
   $(".registerFpriceInfo").submit(function() {
+    $(this).find("input").not("input[type='submit']").each(function() {
+      registerFpriceInfo[this.name] = $(this).val();
+    });
+   
+
     registerFprice(this);
 
     return false;
