@@ -52,6 +52,58 @@ $function() {
     });
 
   } 
+
+  function currentShelves(formInfo) {
+
+    $ajax({
+
+      url:"../libs/sql-ajax-json.php",
+      datatype:"json",
+      data:{
+        sql: "sql/sql-questions.sql",
+        run: "get shelves"
+
+      },
+      success: function (data) {
+//if the shelf exists, we can export the shelf from here("inside "if{}"), 
+//we just need to create a loop and export it to the html(possibly in "<input>").        
+        if (formInfo["shelf"] == data[0]["shelf"]) {
+
+        else {
+          registerShelf(formInfo);
+        }
+      },
+      error: function(data) {
+        console.log("error: ", data);
+        
+      }
+
+    });
+
+  }
+  function registerShelf(formInfo) {
+
+    $ajax({
+
+      url:"../libs/sql-ajax-json.php",
+      data:"json",
+      data: {
+        sql:"sql/sql-questions.sql",
+        run:"register shelf"
+        shelf: JSON.stringify(bookRegisteringInfo["shelf"]),
+        
+
+      },
+      success: function(data) {
+        console.log("registerShelf success: ", data);
+      },
+      error: function(data){
+        console.log("Great error:",data)
+      }
+
+    });
+
+  } 
   
   $(".bookRegisteringInfo").submit(function() {
     var formInfo = {};
