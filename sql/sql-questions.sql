@@ -33,7 +33,7 @@ INSERT INTO sale (isbn, qty) VALUES ({isbn}, {qty});
 
 
 # register fprice
-INSERT INTO book (isbn, f_price) VALUES ({isbn}, {f_price});
+INSERT INTO book (f_price) VALUES ({f_price});
 
 # calculate saleprice
 INSERT INTO history_price (salePrice, isbn) SELECT f_price*1.8, isbn FROM book WHERE isbn = {isbn};
