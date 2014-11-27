@@ -26,6 +26,13 @@ INSERT INTO bookTittles (tittle) VALUES ({tittle});
 INSERT INTO sale (isbn, qty) VALUES ({isbn}, {qty});
 
 
+# register fprice
+INSERT INTO book (isbn, f_price) VALUES ({isbn}, {f_price});
+
+# calculate saleprice
+INSERT INTO history_price (salePrice, isbn) SELECT f_price*1.8, isbn FROM book WHERE isbn = {isbn};
+
+
 
 #check ISBN
 SELECT isbn FROM book WHERE isbn={isbn}
