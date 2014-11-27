@@ -60,5 +60,6 @@ $function() {
     });
     currentAuthors(formInfo);
     return false
+  }); 
 
 });
