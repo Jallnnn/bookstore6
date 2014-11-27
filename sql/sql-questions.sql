@@ -5,7 +5,7 @@
 # database: bookstore
 
 # get author
-SELECT * FROM authors WHERE fname = {fname} AND lname = {lname};
+SELECT * FROM authors;
 
 # register author
 INSERT INTO authors (fname, lname) VALUES ({fname}, {lname});
