@@ -13,8 +13,14 @@ INSERT INTO authors (fname, lname) VALUES ({fname}, {lname});
 # get shelves
 SELECT * FROM shelf;
 
-#register shelf
+# register shelf
 INSERT INTO shelf (shelf) VALUES ({shelf});
+
+# get tittles
+SELECT * FROM bookTittles;
+
+# register tittle
+INSERT INTO bookTittles (tittle) VALUES ({tittle});
 
 # register soldbooks
 INSERT INTO sale (isbn, qty) VALUES ({isbn}, {qty});

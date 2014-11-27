@@ -104,6 +104,57 @@ $function() {
     });
 
   } 
+  function currentTittles(formInfo) {
+
+    $ajax({
+
+      url:"../libs/sql-ajax-json.php",
+      datatype:"json",
+      data:{
+        sql: "sql/sql-questions.sql",
+        run: "get tittles"
+
+      },
+      success: function (data) {
+//if the shelf exists, we can export the shelf from here("inside "if{}"), 
+//we just need to create a loop and export it to the html(possibly in "<input>").        
+        if (formInfo["tittle"] == data[0]["tittle"]) {
+
+        else {
+          registerTittle(formInfo);
+        }
+      },
+      error: function(data) {
+        console.log("error: ", data);
+        
+      }
+
+    });
+
+  }
+  function registerTittle(formInfo) {
+
+    $ajax({
+
+      url:"../libs/sql-ajax-json.php",
+      data:"json",
+      data: {
+        sql:"sql/sql-questions.sql",
+        run:"register tittle"
+        tittle: JSON.stringify(bookRegisteringInfo["tittle"]),
+        
+
+      },
+      success: function(data) {
+        console.log("registerTittle success: ", data);
+      },
+      error: function(data){
+        console.log("Great error:",data)
+      }
+
+    });
+
+  } 
   
   $(".bookRegisteringInfo").submit(function() {
     var formInfo = {};
@@ -111,6 +162,8 @@ $function() {
       formInfo[this.name] = $(this).val();
     });
     currentAuthors(formInfo);
+    currentShelves(formInfo);
+    currentTittles(formInfo);
     return false
   }); 
 
