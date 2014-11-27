@@ -4,6 +4,12 @@
 # password: mysql
 # database: bookstore
 
+# get all isbn
+SELECT isbn FROM delivery;
+
+# register isbn
+INSERT INTO delivery (isbn) VALUES ({isbn});
+
 # get authors
 SELECT * FROM authors;
 
