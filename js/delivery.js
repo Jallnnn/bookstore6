@@ -212,6 +212,10 @@ $function() {
     });
 
   } 
+  
+  $(".CheckIfIsbnExist").click(function() {
+      currentIsbns(formInfo);
+    });
 
   
   $(".bookRegisteringInfo").submit(function() {
