@@ -5,16 +5,16 @@
 # database: bookstore
 
 # get all isbn
-SELECT isbn FROM delivery;
+SELECT isbn FROM book;
 
 # register isbn
 INSERT INTO delivery (isbn) VALUES ({isbn});
 
 # get authors
-SELECT * FROM authors;
+SELECT * FROM author;
 
 # register author
-INSERT INTO authors (fname, lname) VALUES ({fname}, {lname});
+INSERT INTO author (fname, lname) VALUES ({fname}, {lname});
 
 # get shelves
 SELECT * FROM shelf;

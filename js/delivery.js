@@ -1,61 +1,12 @@
-$function() {
+$(function() {
 
-  function currentAuthors(formInfo) {
 
-    $ajax({
-
-      url:"../libs/sql-ajax-json.php",
-      datatype:"json",
-      data:{
-        sql: "sql/sql-questions.sql",
-        run: "get authors"
-
-      },
-      success: function (data) {
-//if the author exists, we can export the fname and lname from here("inside "if{}"), 
-//we just need to create a loop and export it to the html(possibly in "<input>").        
-        if (formInfo["fname"] == data[0]["fname"] || formInfo["lname"] == data[0]["lname"]) {
-          return;
-        else {
-          registerAuthors(formInfo);
-        }
-      },
-      error: function(data) {
-        console.log("error: ", data);
-        
-      }
-
-    });
-
-  }
-
-  function registerAuthors(formInfo) {
-
-    $ajax({
-
-      url:"../libs/sql-ajax-json.php",
-      data:"json",
-      data: {
-        sql:"sql/sql-questions.sql",
-        run:"register author"
-        fname: JSON.stringify(bookRegisteringInfo["fname"]),
-        lname: JSON.stringify(bookRegisteringInfo["lname"])
-
-      },
-      success: function(data) {
-        console.log("registerAuthors success: ", data);
-      },
-      error: function(data){
-        console.log("Great error:",data)
-      }
-
-    });
-
-  } 
+/*
+ 
 
   function currentShelves(formInfo) {
 
-    $ajax({
+    $.ajax({
 
       url:"../libs/sql-ajax-json.php",
       datatype:"json",
@@ -68,9 +19,10 @@ $function() {
 //if the shelf exists, we can export the shelf from here("inside "if{}"), 
 //we just need to create a loop and export it to the html(possibly in "<input>").        
         if (formInfo["shelf"] == data[0]["shelf"]) {
-          return;
+          formInfo.shelfData = data;
+          registerTittle(formInfo);
 
-        else {
+        } else {
           registerShelf(formInfo);
         }
       },
@@ -84,7 +36,7 @@ $function() {
   }
   function registerShelf(formInfo) {
 
-    $ajax({
+    $.ajax({
 
       url:"../libs/sql-ajax-json.php",
       data:"json",
@@ -107,7 +59,7 @@ $function() {
   } 
   function currentTittles(formInfo) {
 
-    $ajax({
+    $.ajax({
 
       url:"../libs/sql-ajax-json.php",
       datatype:"json",
@@ -157,9 +109,10 @@ $function() {
     });
 
   } 
+  */
   function currentIsbns(formInfo) {
 
-    $ajax({
+    $.ajax({
 
       url:"../libs/sql-ajax-json.php",
       datatype:"json",
@@ -168,16 +121,15 @@ $function() {
         run: "get all isbn"
 
       },
-      success: function (data) {        
-        if (formInfo["isbn"] == data[0]["isbn"]) {
-//Here,we need to call a function(s) that will show the existing values for:title, fname, lname, publisher price and shelf
-//in the html <input> and add an attr ("dissabled") so the worker can not change those values.But
-//just enter the quantity and submit. 
-      return;   
-        else {
-          registerISBN(formInfo);
-
-
+      success: function (data) {
+        var foundIsbn = false;
+          if (formInfo["isbn"] == data[0]["isbn"]) {
+          foundIsbn=true;
+        }
+        if (foundIsbn) {
+          return;
+        }else {
+          currentAuthors(formInfo);
         }
       },
       error: function(data) {
@@ -189,16 +141,82 @@ $function() {
 
   }
 
-  function registerISBN(formInfo) {
-
-    $ajax({
+  function currentAuthors(formInfo) {
+     console.log("function info", formInfo);
+    $.ajax({
 
       url:"../libs/sql-ajax-json.php",
-      data:"json",
+      datatype:"json",
+      data:{
+        sql: "sql/sql-questions.sql",
+        run: "get authors"
+
+      },
+      success: function (data) {
+        console.log("founddata", data);
+        var foundAuthor = false;
+        for (var i = 0; i < data.length; i++) {
+          if (formInfo["fname"] != data[i]["fname"] || formInfo["lname"] != data[i]["lname"]) {
+            formInfo.authorsData = data;
+            registerAuthors(formInfo);
+            
+//            registerShelf(formInfo);
+            foundAuthor = true;
+
+          }
+        }
+
+        if (foundAuthor) {
+
+          return;
+        } else {
+          registerShelf(formInfo);
+        }
+      },
+      error: function(data) {
+        console.log("error: ", data);
+        
+      }
+
+    });
+
+  }
+
+  function registerAuthors(formInfo) {
+
+      $.ajax({
+
+        url:"../libs/sql-ajax-json.php",
+        dataType:"json",
+        data: {
+          sql:"sql/sql-questions.sql",
+          run:"register author",
+          fname: JSON.stringify(formInfo["fname"]),
+          lname: JSON.stringify(formInfo["lname"])
+        },
+        success: function(data) {
+          
+          console.log("registerAuthors success: ", data);
+        },
+        error: function(data){
+          console.log("Great error:",data);
+        }
+
+      });
+
+  }
+/*
+  function registerISBN(formInfo) {
+    console.log()
+
+    $.ajax({
+
+      url:"../libs/sql-ajax-json.php",
+      datatype:"json",
       data: {
         sql:"sql/sql-questions.sql",
         run:"register isbn",
-        isbn: JSON.stringify(bookRegisteringInfo["isbn"])
+        isbn: JSON.stringify(formInfo["isbn"])
 
       },
       success: function(data) {
@@ -206,16 +224,20 @@ $function() {
 
       },
       error: function(data){
-        console.log("Great error:",data)
+        console.log("Great error:",data);
       }
 
     });
 
-  } 
-  
+  }
+*/
   $(".CheckIfIsbnExist").click(function() {
-      currentIsbns(formInfo);
-    });
+    var formInfo = {};
+    formInfo["isbn"] = $(".bookRegisteringInfo input[name='isbn']").val();
+    console.log(formInfo);
+    currentIsbns(formInfo);
+
+  });
 
   
   $(".bookRegisteringInfo").submit(function() {
@@ -224,11 +246,8 @@ $function() {
       formInfo[this.name] = $(this).val();
     });
     currentIsbns(formInfo);
-    currentTittles(formInfo);
-    currentAuthors(formInfo);
-    currentShelves(formInfo);
     
-    return false
-  }); 
+    return false;
+  });
 
 });
