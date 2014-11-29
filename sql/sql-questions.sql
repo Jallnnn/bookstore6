@@ -4,45 +4,34 @@
 # password: mysql
 # database: bookstore
 
-# get all isbn
-SELECT isbn FROM book;
 
-# register isbn
-INSERT INTO delivery (isbn) VALUES ({isbn});
-
-# get authors
-SELECT * FROM author;
+# check author
+SELECT * FROM author WHERE fname = {fname} && lname = {lname};
 
 # register author
 INSERT INTO author (fname, lname) VALUES ({fname}, {lname});
 
-# get shelves
-SELECT * FROM shelf;
+# check shelf
+SELECT * FROM shelf WHERE shelfNr = {shelfNr};
 
 # register shelf
-INSERT INTO shelf (shelf) VALUES ({shelf});
+INSERT INTO shelf (shelfNr) VALUES ({shelfNr});
 
-# get tittles
-SELECT * FROM bookTittles;
+# check ISBN
+SELECT isbn FROM book WHERE isbn={isbn};
 
-# register tittle
-INSERT INTO bookTittles (tittle) VALUES ({tittle});
+# register isbn
+INSERT INTO book (isbn, title, authorId, shelf_id) VALUES ({isbn}, {title}, {idAuthor}, {idShelf});
+
+# register delivery
+INSERT INTO delivery (fprice, quantity, isbn) VALUES ({fprice}, {quantity}, {isbn});
+
+# calculate saleprice
+INSERT INTO history_price (salePrice, isbn) SELECT {salePrice}*1.8, isbn FROM delivery WHERE isbn = {isbn};
+
 
 # register soldbooks
 INSERT INTO sale (isbn, qty) VALUES ({isbn}, {qty});
 
-
-# register fprice
-INSERT INTO book (f_price) VALUES ({f_price});
-
-# calculate saleprice
-INSERT INTO history_price (salePrice, isbn) SELECT f_price*1.8, isbn FROM book WHERE isbn = {isbn};
-
-
-
-#check ISBN
-SELECT isbn FROM book WHERE isbn={isbn}
-
 # uppdatePrice
-INSERT INTO history_price (isbn,salePrice ) VALUES ({isbn}, {salePrice});
-
+INSERT INTO history_price (isbn, salePrice ) VALUES ({isbn}, {salePrice});
