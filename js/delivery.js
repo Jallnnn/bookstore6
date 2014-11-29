@@ -13,9 +13,7 @@ $(function() {
 		});
 
 		console.log(formInfo);
-		// TODO check if isbn exists
-		//checkIsbnExists(formInfo);
-    checkAuthorExists(formInfo);
+		checkAuthorExists(formInfo);
 
 		return false;
 	});
@@ -206,8 +204,9 @@ $(function() {
       dataType: "json",
       data: {
         sql: "sql/sql-questions.sql",
-        run: "calculate saleprice",
-        salePrice: formInfo["fprice"]
+        run: "register saleprice",
+        salePrice: formInfo["fprice"] * 1.8,
+        isbn: formInfo["isbn"]
       },
       success: function(data) {
         console.log("mathsFprice success: ", data);
