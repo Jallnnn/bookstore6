@@ -1,8 +1,9 @@
 $(function(){
 	
-	var info={};
+	var info={}; var form;
 	$(".updatePriceInfo").submit(function(){
-		$(this).find("input").not("input[type='submit']").each(function(){
+		form=$(this);
+		form.find("input").not("input[type='submit']").each(function(){
 			info[this.name]=$(this).val();
 		});
 		
@@ -24,8 +25,8 @@ $(function(){
       },
       success:checkIsbnIsEmpty,
       error: function(data) {
-        console.log("great error",data);
-        //$(".bookNoExist").show();
+        console.log("Error",data);
+        
       }
     });
 	
@@ -35,10 +36,11 @@ $(function(){
 	if ($.isEmptyObject(data))
        {
 			$(".updatePriceSuccess").hide();
-			$(".bookNoExist").show();
+			$(".bookNoExist").css('display', 'block');
 			
        }else{
 			$(".bookNoExist").hide();
+			form.find("input").not("input[type='submit']").val('');
 			updatePrice(info)
 			
 	   }
@@ -62,7 +64,7 @@ $(function(){
 		$(".updatePriceSuccess").show();
       },
       error: function(data) {
-        console.log("great error",data);
+        console.log("Error",data);
       }
     });
 	}

@@ -17,8 +17,7 @@ $(function() {
       dataType: "json",
       data: {
         sql: "sql/sql-questions.sql",
-        run: "register soldbooks",
-        
+        run: "register soldbooks",   
         isbn: soldBookRegisteringInfo["isbn"],
         qty: soldBookRegisteringInfo["qty"]
  
