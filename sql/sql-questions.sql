@@ -26,8 +26,8 @@ INSERT INTO book (isbn, title, authorId, shelf_id) VALUES ({isbn}, {title}, {idA
 # register delivery
 INSERT INTO delivery (fprice, quantity, isbn) VALUES ({fprice}, {quantity}, {isbn});
 
-# calculate saleprice
-INSERT INTO history_price (salePrice, isbn) SELECT {salePrice}*1.8, isbn FROM delivery WHERE isbn = {isbn};
+# register saleprice
+INSERT INTO history_price (salePrice, isbn) VALUES ({salePrice}, {isbn});
 
 
 # register soldbooks
