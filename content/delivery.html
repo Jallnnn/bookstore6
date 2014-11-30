@@ -23,13 +23,10 @@
 		<section class="registerBook">
             <h2>Delivery Form</h2>
             <form class="bookRegisteringInfo">
-            <section class="registeringNotify">
-                <div class="registeredSuccess">Successfully registered!</div>
-                <div class="registeredError">Something went wrong, try again!</div>
-            </section>
+            
             <label for="isbn">ISBN:</label>
             <input type="number" name="isbn" required>
-            <button class="CheckIfIsbnExist">Check if the ISBN already exist</button>
+            <!-- <button class="CheckIfIsbnExist">Check if the ISBN already exist</button> -->
             <label for="title">Title:</label>
             <input type="text" name="title" required>
             <label for="fname">First Name:</label>
@@ -46,8 +43,11 @@
 
             <input type="submit" value="Submit">
           </form>
-          <section class="registeredBooks">You registered:<p></p></section>
-          <button class="cancelRegistering">Cancel</button>
+
+          <span class="registeredNewBook">A new book has been registered!</span>
+          <span class="bookFound">Book already exists. Price and quantity registered!</span>
+          
+          <!-- <button class="cancelRegistering">Cancel</button> -->
         </section>
     </main>
 

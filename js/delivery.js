@@ -134,17 +134,17 @@ $(function() {
       },
       success: function(data) {
         if ($.isEmptyObject(data)){
-        console.log("Isbn not found!");
-        registerIsbn(formInfo);
+          console.log("Isbn not found!");
+          registerIsbn(formInfo);
         }
         else {
-        console.log("Isbn already exists");
-        // TODO add error css
+          console.log("Isbn already exists");
+          $(".bookFound").show();
+          registerDelivery(formInfo);
         }
       },
       error: function(data) {
         console.log("Error",data);
-        //$(".bookNoExist").show();
       }
     });
 	
@@ -165,6 +165,7 @@ $(function() {
       },
       success: function(data) {
         console.log("registerIsbn success: ", data);
+        $(".registeredNewBook").show();
         registerDelivery(formInfo);
       },
       error: function(data) {
