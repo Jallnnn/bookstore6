@@ -68,6 +68,54 @@ $(function() {
   }
 
 
+
+
+  function getSearchResult(formInfo) {
+
+    $.ajax({
+      url:"../libs/sql-ajax-json.php",
+      dataType: "json",
+      data: {
+        sql: "sql/sql-questions.sql",
+        run: "check ISBN",
+        isbn: formInfo["isbn"]
+      },
+      success: function(data) {
+        if ($.isEmptyObject(data)){
+          console.log("Isbn not found!");
+        }
+        else {
+          console.log("Isbn already exists");
+          $(".bookFound").show();
+          showResult(formInfo);
+        }
+      },
+      error: function(data) {
+        console.log("Error",data);
+      }
+    });
+  }
+
+  function showResult(formInfo) {
+
+    $.ajax({
+      url:"../libs/sql-ajax-json.php",
+      dataType: "json",
+      data: {
+        sql: "sql/sql-questions.sql",
+        run: "test question",
+        isbn: formInfo["isbn"]
+      },
+      success: function(data) {
+        console.log("showResult success: ", data);
+        
+      },
+      error: function(data) {
+        console.log("Error: ",data);
+      }
+    });
+  }
+
 });
 
 

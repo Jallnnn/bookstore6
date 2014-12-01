@@ -35,3 +35,6 @@ INSERT INTO sale (isbn, qty) VALUES ({isbn}, {qty});
 
 # uppdatePrice
 INSERT INTO history_price (isbn, salePrice ) VALUES ({isbn}, {salePrice});
+
+# test question
+SELECT * FROM book WHERE isbn = {isbn};
