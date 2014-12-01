@@ -36,5 +36,11 @@ INSERT INTO sale (isbn, qty) VALUES ({isbn}, {qty});
 # uppdatePrice
 INSERT INTO history_price (isbn, salePrice ) VALUES ({isbn}, {salePrice});
 
+<<<<<<< HEAD
 # test question
 SELECT * FROM book WHERE isbn = {isbn};
+=======
+# show everything
+SELECT * FROM book WHERE isbn={isbn};
+
+>>>>>>> Added id's in delivery.html (its easier to export in html with  "id" than "name"), creating ajax and sql question in delivery.js

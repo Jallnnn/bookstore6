@@ -141,7 +141,7 @@ $(function() {
           console.log("Isbn already exists");
           $(".bookFound").show();
           showEverythingIfIsbnExist(formInfo);
-          registerDelivery(formInfo);
+         
         }
       },
       error: function(data) {
@@ -238,8 +238,11 @@ $(function() {
           isbn: formIsbn["isbn"]
         },
         success: function(data) {
-
-          
+          console.log(data) // --> check the data you get back - do you have a title
+          // if id
+          $("#title").val(data.title);
+          // if only name attribute is title
+          $('input[name="title"]').val(data.title);
         registerDelivery(formInfo);
         },
         error: function(data) {
