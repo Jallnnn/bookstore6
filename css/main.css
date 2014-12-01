@@ -34,17 +34,17 @@ ul li {
  display:none;
  }
  
-.registerBook, .soldBookRegister, .updatePrice {
+.registerBook, .soldBookRegister, .updatePrice, .customerForm {
 	margin: 60px;
 }
 
-.bookRegisteringInfo, .soldBookRegisteringInfo, .updatePriceInfo {
+.bookRegisteringInfo, .soldBookRegisteringInfo, .updatePriceInfo, .customerInfo {
 	width: 30%;
  	margin: 20px 30px;
  	display: inline-block;
 }
 
-.bookRegisteringInfo input, .soldBookRegisteringInfo input, .updatePriceInfo input {
+.bookRegisteringInfo input, .soldBookRegisteringInfo input, .updatePriceInfo input, .customerInfo input {
 	display: block;
 	margin-bottom: 10px;
 }
