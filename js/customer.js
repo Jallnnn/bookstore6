@@ -9,12 +9,13 @@ $(function() {
     });
 
     console.log(formInfo);
-    checkAuthorExists(formInfo);
+    checkAuthorIfExists(formInfo);
+    checkIsbnExists(formInfo);
 
     return false;
   });
    
- function checkAuthorExists(formInfo){
+ function checkAuthorIfExists(formInfo){
   
     $.ajax({
       url:"../libs/sql-ajax-json.php",
@@ -31,11 +32,35 @@ $(function() {
         }
         else {
         console.log("Author already exists: ", data);
-          g_idAuthor = data[0]["authorId"];
-         
         }
       },
        error: function(data) {
+        console.log("Error",data);
+      }
+    });
+  
+  }
+
+    function checkIsbnExists(formInfo){
+  
+    $.ajax({
+      url:"../libs/sql-ajax-json.php",
+      dataType: "json",
+      data: {
+        sql: "sql/sql-questions.sql",
+        run: "check ISBN",
+        isbn: formInfo["isbn"]
+      },
+      success: function(data) {
+        if ($.isEmptyObject(data)){
+          console.log("Isbn not found!");
+        }
+        else {
+          console.log("Isbn already exists");
+          $(".bookFound").show();
+        }
+      },
+      error: function(data) {
         console.log("Error",data);
       }
     });

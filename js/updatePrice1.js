@@ -21,7 +21,7 @@ $(function(){
       data: {
         sql: "sql/sql-questions.sql",
         run: "check ISBN",
-        isbn: info.isbn 
+        isbn: info.isbn
       },
       success:checkIsbnIsEmpty,
       error: function(data) {
@@ -43,7 +43,7 @@ $(function(){
 			form.find("input").not("input[type='submit']").val('');
 			updatePrice(info)
 			
-	   }
+	 }
 	
 	
 	}
