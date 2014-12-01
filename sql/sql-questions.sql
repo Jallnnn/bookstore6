@@ -41,6 +41,6 @@ INSERT INTO history_price (isbn, salePrice ) VALUES ({isbn}, {salePrice});
 SELECT * FROM book WHERE isbn = {isbn};
 =======
 # show everything
-SELECT * FROM book WHERE isbn={isbn};
+SELECT title, shelf_id, fname, lname, publisher_price FROM registery_book WHERE isbn={isbn};
 
 >>>>>>> Added id's in delivery.html (its easier to export in html with  "id" than "name"), creating ajax and sql question in delivery.js
