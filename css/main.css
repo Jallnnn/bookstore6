@@ -68,7 +68,7 @@ ul li {
 	margin: 10px;
 }
 
-.soldBookRegister, .registerBook {
+.soldBookRegister, .registerBook, .customerForm {
 	background-color: #E0EBEB;
 	padding: 10px;
 }
