@@ -80,7 +80,7 @@ $(function() {
       data: {
         sql: "sql/sql-questions.sql",
         run: "check shelf",
-        shelfNr: JSON.stringify(formInfo["shelfNr"])
+        shelf_id: JSON.stringify(formInfo["shelf_id"])
       },
       success: function(data) {
         if ($.isEmptyObject(data)){
@@ -89,7 +89,7 @@ $(function() {
         }
         else {
           console.log("Shelf already exists: ", data);
-          g_idShelf = data[0]["shelfNr"];
+          g_idShelf = data[0]["shelf_id"];
           checkIsbnExists(formInfo);
           // TODO add error css
         }
@@ -109,7 +109,7 @@ $(function() {
       data: {
         sql:"sql/sql-questions.sql",
         run:"register shelf",
-        shelfNr: JSON.stringify(formInfo["shelfNr"])
+        shelf_id: JSON.stringify(formInfo["shelf_id"])
       },
       success: function(data) {
         console.log("registerShelf success: ", data);
@@ -185,7 +185,7 @@ $(function() {
         run: "register delivery",
         isbn: formInfo["isbn"],
         fprice: formInfo["fprice"],
-        quantity: formInfo["quantity"]
+        qty: formInfo["qty"]
       },
       success: function(data) {
         console.log("registerDelivery success: ", data);

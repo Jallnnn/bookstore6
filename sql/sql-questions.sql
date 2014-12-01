@@ -12,10 +12,10 @@ SELECT * FROM author WHERE fname = {fname} && lname = {lname};
 INSERT INTO author (fname, lname) VALUES ({fname}, {lname});
 
 # check shelf
-SELECT * FROM shelf WHERE shelfNr = {shelfNr};
+SELECT * FROM shelf WHERE shelf_id = {shelf_id};
 
 # register shelf
-INSERT INTO shelf (shelfNr) VALUES ({shelfNr});
+INSERT INTO shelf (shelf_id) VALUES ({shelf_id});
 
 # check ISBN
 SELECT isbn FROM book WHERE isbn={isbn};
@@ -24,7 +24,7 @@ SELECT isbn FROM book WHERE isbn={isbn};
 INSERT INTO book (isbn, title, authorId, shelf_id) VALUES ({isbn}, {title}, {idAuthor}, {idShelf});
 
 # register delivery
-INSERT INTO delivery (fprice, quantity, isbn) VALUES ({fprice}, {quantity}, {isbn});
+INSERT INTO delivery (fprice, qty, isbn) VALUES ({fprice}, {qty}, {isbn});
 
 # register saleprice
 INSERT INTO history_price (salePrice, isbn) VALUES ({salePrice}, {isbn});
