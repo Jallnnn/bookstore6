@@ -80,7 +80,7 @@ $(function() {
       data: {
         sql: "sql/sql-questions.sql",
         run: "check shelf",
-        shelf_id: JSON.stringify(formInfo["shelf_id"])
+        shelfNr: JSON.stringify(formInfo["shelfNr"])
       },
       success: function(data) {
         if ($.isEmptyObject(data)){
@@ -89,7 +89,7 @@ $(function() {
         }
         else {
           console.log("Shelf already exists: ", data);
-          g_idShelf = data[0]["shelf_id"];
+          g_idShelf = data[0]["shelfNr"];
           checkIsbnExists(formInfo);
           // TODO add error css
         }
@@ -109,7 +109,7 @@ $(function() {
       data: {
         sql:"sql/sql-questions.sql",
         run:"register shelf",
-        shelf_id: JSON.stringify(formInfo["shelf_id"])
+        shelfNr: JSON.stringify(formInfo["shelfNr"])
       },
       success: function(data) {
         console.log("registerShelf success: ", data);
@@ -140,6 +140,7 @@ $(function() {
         else {
           console.log("Isbn already exists");
           $(".bookFound").show();
+          showEverythingIfIsbnExist(formInfo);
           registerDelivery(formInfo);
         }
       },
@@ -185,7 +186,7 @@ $(function() {
         run: "register delivery",
         isbn: formInfo["isbn"],
         fprice: formInfo["fprice"],
-        qty: formInfo["qty"]
+        quantity: formInfo["quantity"]
       },
       success: function(data) {
         console.log("registerDelivery success: ", data);
@@ -218,6 +219,40 @@ $(function() {
       }
     });
   }
+  
+    $(".CheckIfIsbnExist").click(function() {
+    var formInfo = {};
+    formInfo["isbn"] = $(".bookRegisteringInfo input[name='isbn']").val();
+    console.log(formInfo);
+    checkIsbnExists(formInfo);
+
+    });
+
+    function showEverythingIfIsbnExist(formInfo) {
+      $.ajax({
+        url:"../libs/sql-ajax-json.php",
+        dataType: "json",
+        data: {
+          sql: "sql/sql-questions.sql",
+          run: "show everything",
+          isbn: formIsbn["isbn"]
+        },
+        success: function(data) {
+
+          
+        registerDelivery(formInfo);
+        },
+        error: function(data) {
+          console.log("Error",data);
+        }
+      });
+
+    }
+
+
+
+
+
 
 
 });
