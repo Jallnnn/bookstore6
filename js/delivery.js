@@ -238,7 +238,7 @@ $(function() {
           isbn: formIsbn["isbn"]
         },
         success: function(data) {
-          console.log(data) // --> check the data you get back - do you have a title
+          console.log(data); // --> check the data you get back - do you have a title
           // if id
           $("#title").val(data.title);
           // if only name attribute is title
