@@ -59,14 +59,14 @@ ul li {
 	
 }*/
 
-.soldRegisteredError, .UpdatePriceNotify .updatePriceError {
+.soldRegisteredError, .updatePriceError {
 	background-color: #FA2525;
 	padding: 5px;
 }
 
-.cancelRegistering, .cancelSoldRegistering, .cancelUpdatePrice {
+/*.cancelRegistering, .cancelSoldRegistering, .cancelUpdatePrice {
 	margin: 10px;
-}
+}*/
 
 .soldBookRegister, .registerBook, .customerForm {
 	background-color: #E0EBEB;
@@ -79,7 +79,7 @@ ul li {
 	margin-top: 100px;
 }
 
-.registeredSoldBooks, .registeredNewBook {
+.registeredSoldBooks, .registeredNewBook, .priceUpdated {
 	background-color: #7EDD1E;
 	width:350px;
 	padding:10px;
@@ -93,7 +93,7 @@ ul li {
 	margin-bottom:10px;
 }
 
-.bookNoExist {
+.bookNoExist, .updatePriceError, .cancelSoldRegistering {
 	background-color:#FA2525;
 	width:350px;
 	padding:10px;
