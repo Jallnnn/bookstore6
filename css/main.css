@@ -50,7 +50,7 @@ ul li {
 	margin-bottom: 10px;
 }
 
-.isbnSearch {
+isbnSearch {
 	display:none;
 }
 
@@ -65,6 +65,10 @@ ul li {
 	margin-top:15px;
 	margin-bottom:15px;
 
+}
+
+.optionsMenu {
+	margin-bottom:15px;
 }
 
 
