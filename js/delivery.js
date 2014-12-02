@@ -139,8 +139,8 @@ $(function() {
         }
         else {
           console.log("Isbn already exists");
-          $(".bookFound").show();
-          showEverythingIfIsbnExist(formInfo);
+         // $(".bookFound").show();
+          registerDelivery(formInfo);
          
         }
       },
@@ -220,37 +220,7 @@ $(function() {
     });
   }
   
-    $(".CheckIfIsbnExist").click(function() {
-    var formInfo = {};
-    formInfo["isbn"] = $(".bookRegisteringInfo input[name='isbn']").val();
-    console.log(formInfo);
-    checkIsbnExists(formInfo);
-
-    });
-
-    function showEverythingIfIsbnExist(formInfo) {
-      $.ajax({
-        url:"../libs/sql-ajax-json.php",
-        dataType: "json",
-        data: {
-          sql: "sql/sql-questions.sql",
-          run: "show everything",
-          isbn: formIsbn["isbn"]
-        },
-        success: function(data) {
-          console.log( "showEverythingIfIsbnExist",data);
-          $("#title").val(data.title);
-          // if only name attribute is title
-          $('input[name="title"]').val(data.title);
-        registerDelivery(formInfo);
-        },
-        error: function(data) {
-          console.log("Error",data);
-        }
-      });
-
-    }
-
+    
 
 
 
