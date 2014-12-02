@@ -118,7 +118,13 @@ isbnSearch {
 	padding:10px;
 	margin-bottom:10px;
 }
-
+ .report {
+	display: inline block;
+	background: white;
+	width: 70vw;
+	height: 300px;
+	z-index: 10;
+}
 .bookNoExist, .updatePriceError, .cancelSoldRegistering {
 	background-color:#FA2525;
 	width:350px;
