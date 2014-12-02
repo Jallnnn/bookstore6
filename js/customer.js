@@ -2,15 +2,15 @@ $(function() {
 
   $(".customerInfo").submit(function() {
 
-    // var formInfo = {};
+    var formInfo = {};
 
-    // $(this).find("input").not("input[type='submit']").each(function() {
-    //   formInfo[this.name] = $(this).val();
-    // });
+    $(this).find("input").not("input[type='submit']").each(function() {
+      formInfo[this.name] = $(this).val();
+    });
 
-    // console.log(formInfo);
-    // checkAuthorIfExists(formInfo);
-    // checkIsbnExists(formInfo);
+    console.log(formInfo);
+    checkAuthorIfExists(formInfo);
+    checkIsbnExists(formInfo);
 
     showAll();
 
@@ -61,20 +61,7 @@ $(function() {
 
 
 
-  // function getSearchResult(formInfo) {
-
-  //   $.ajax({
-  //     url:"../libs/sql-ajax-json.php",
-  //     dataType: "json",
-  //     data: {
-  //       sql: "sql/sql-questions.sql",
-  //       run: "check ISBN",
-  //       isbn: formInfo["isbn"]
-  //     },
-  //     success: showResult
-  //   });
-  // }
-
+  
   function showAll() {
 
     $.ajax({
@@ -90,7 +77,7 @@ $(function() {
 
   function showResult(data) {
 
-console.log("PPPPPPPPPPPPPPPPO: ", data);
+console.log("Please work: ", data);
 
     $('.search-listing article').not('.search-column-names').remove();
 
@@ -98,8 +85,8 @@ console.log("PPPPPPPPPPPPPPPPO: ", data);
      
       var article = $('<article/>');
 
-      article.append('<span class="searchIsbn">' + data[i].isbn + '</span>');
-      article.append('<span class="searchTitle">' + data[i].title + '</span>');
+      article.append('<span class="searchIsbn">' + data[i]["isbn"] + '</span>');
+      article.append('<span class="searchTitle">' + data[i]["title"] + '</span>');
 
       $('.search-listing').append(article);
     }
