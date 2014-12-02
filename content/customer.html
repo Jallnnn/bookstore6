@@ -20,22 +20,42 @@
     </header>
 
     <main>
+
          <section class="customerForm">
             <h2>Customer Search</h2>
-                <form class="customerInfo">
-            
-                    <label for="isbn">ISBN:</label>
-                    <input type="number" name="isbn">
+            <select>
+                <option valuee="Search options">Search Options</option>
+                <option value="ISBN">Search by ISBN</option>
+                <option value="title">Search by title</option>
+                <option value="author">Search by author</option>
+            </select>
+
+
+            <form class="isbnSearch">
+                <label for="isbn">ISBN:</label>
+                <input type="number" name="isbn">
+            </form>
+
+            <form class="titleSearch">
+                    
                     <label for="title">Title:</label>
                     <input type="text" name="title">
+
+            </form>
+            <form class="authorSearch">
+                   
                     <label for="fname">Author First Name:</label>
                     <input type="text" name="fname">
+                    
                     <label for="lname">Author Last Name:</label>
                     <input type="text" name="lname">
+            </form>
 
                     <input type="submit" value="Submit">
                 </form>
         </section>
+
+
 	
     </main>
 

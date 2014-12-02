@@ -34,20 +34,42 @@ ul li {
  display:none;
  }
  
+ 
 .registerBook, .soldBookRegister, .updatePrice, .customerForm {
 	margin: 60px;
 }
 
-.bookRegisteringInfo, .soldBookRegisteringInfo, .updatePriceInfo, .customerInfo {
+.bookRegisteringInfo, .soldBookRegisteringInfo, .updatePriceInfo, .isbnSearch .titleSearch  {
 	width: 30%;
  	margin: 20px 30px;
  	display: inline-block;
 }
 
-.bookRegisteringInfo input, .soldBookRegisteringInfo input, .updatePriceInfo input, .customerInfo input {
+.bookRegisteringInfo input, .soldBookRegisteringInfo input, .updatePriceInfo input, .isbnSearch input, .titleSearch input {
 	display: block;
 	margin-bottom: 10px;
 }
+
+isbnSearch {
+	display:none;
+}
+
+.titleSearch {
+	display:none;
+	margin-top:15px;
+}
+
+.authorSearch {
+	display:none;
+	width:160px;
+	margin-top:15px;
+	margin-bottom:15px;
+
+}
+
+
+
+
 
 /*.registeringNotify div, .soldRegisteringNotify div, .UpdatePriceNotify div {
 	display: none;
