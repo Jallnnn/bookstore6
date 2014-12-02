@@ -50,7 +50,7 @@ ul li {
 	margin-bottom: 10px;
 }
 
-isbnSearch {
+.isbnSearch {
 	display:none;
 }
 
@@ -130,4 +130,8 @@ isbnSearch {
 	width:350px;
 	padding:10px;
 	margin-bottom:10px;
+}
+
+.search-listing span {
+	display: initial;
 }

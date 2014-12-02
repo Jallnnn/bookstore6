@@ -34,7 +34,7 @@ $(function(){
 	function checkIsbnIsEmpty(data){
 	if ($.isEmptyObject(data))
        {
-			$(".updatePriceSuccess").hide();
+			$(".priceUpdated").hide();
 			$(".bookNoExist").show();
 			
        }else{
@@ -59,7 +59,7 @@ $(function(){
 		},
 		success: function(data) {
 			console.log("uppdatePrice success: ", data);
-			$(".updatePriceSuccess").show();
+			$(".priceUpdated").show();
 		},
 		error: function(data) {
 			console.log("great error",data);
