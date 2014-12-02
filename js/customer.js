@@ -2,15 +2,17 @@ $(function() {
 
   $(".customerInfo").submit(function() {
 
-    var formInfo = {};
+    // var formInfo = {};
 
-    $(this).find("input").not("input[type='submit']").each(function() {
-      formInfo[this.name] = $(this).val();
-    });
+    // $(this).find("input").not("input[type='submit']").each(function() {
+    //   formInfo[this.name] = $(this).val();
+    // });
 
-    console.log(formInfo);
-    checkAuthorIfExists(formInfo);
-    checkIsbnExists(formInfo);
+    // console.log(formInfo);
+    // checkAuthorIfExists(formInfo);
+    // checkIsbnExists(formInfo);
+
+    showAll();
 
     return false;
   });
@@ -51,18 +53,7 @@ $(function() {
         run: "check ISBN",
         isbn: formInfo["isbn"]
       },
-      success: function(data) {
-        if ($.isEmptyObject(data)){
-          console.log("Isbn not found!");
-        }
-        else {
-          console.log("Isbn already exists");
-          $(".bookFound").show();
-        }
-      },
-      error: function(data) {
-        console.log("Error",data);
-      }
+      success: showResult
     });
   
   }
@@ -70,50 +61,49 @@ $(function() {
 
 
 
-  function getSearchResult(formInfo) {
+  // function getSearchResult(formInfo) {
+
+  //   $.ajax({
+  //     url:"../libs/sql-ajax-json.php",
+  //     dataType: "json",
+  //     data: {
+  //       sql: "sql/sql-questions.sql",
+  //       run: "check ISBN",
+  //       isbn: formInfo["isbn"]
+  //     },
+  //     success: showResult
+  //   });
+  // }
+
+  function showAll() {
 
     $.ajax({
       url:"../libs/sql-ajax-json.php",
       dataType: "json",
       data: {
         sql: "sql/sql-questions.sql",
-        run: "check ISBN",
-        isbn: formInfo["isbn"]
+        run: "show search",
       },
-      success: function(data) {
-        if ($.isEmptyObject(data)){
-          console.log("Isbn not found!");
-        }
-        else {
-          console.log("Isbn already exists");
-          $(".bookFound").show();
-          showResult(formInfo);
-        }
-      },
-      error: function(data) {
-        console.log("Error",data);
-      }
+      success: showResult
     });
   }
 
-  function showResult(formInfo) {
+  function showResult(data) {
 
-    $.ajax({
-      url:"../libs/sql-ajax-json.php",
-      dataType: "json",
-      data: {
-        sql: "sql/sql-questions.sql",
-        run: "test question",
-        isbn: formInfo["isbn"]
-      },
-      success: function(data) {
-        console.log("showResult success: ", data);
-        
-      },
-      error: function(data) {
-        console.log("Error: ",data);
-      }
-    });
+console.log("PPPPPPPPPPPPPPPPO: ", data);
+
+    $('.search-listing article').not('.search-column-names').remove();
+
+    for(var i = 0; i < data.length; i++) {
+     
+      var article = $('<article/>');
+
+      article.append('<span class="searchIsbn">' + data[i].isbn + '</span>');
+      article.append('<span class="searchTitle">' + data[i].title + '</span>');
+
+      $('.search-listing').append(article);
+    }
+
   }
 
 });

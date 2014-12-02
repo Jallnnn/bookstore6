@@ -40,3 +40,6 @@ INSERT INTO history_price (isbn, salePrice ) VALUES ({isbn}, {salePrice});
 # show everything
 SELECT title, shelf_id, fname, lname, publisher_price FROM registery_book WHERE isbn={isbn};
 
+# show search
+SELECT * FROM current_price;
+
