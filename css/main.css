@@ -30,9 +30,9 @@ ul li {
  	text-decoration:none;
  }
 
- span{
+ /*span{
  display:none;
- }
+ }*/
  
  
 .registerBook, .soldBookRegister, .updatePrice, .customerForm {
@@ -75,37 +75,34 @@ ul li {
 
 
 
-/*.registeringNotify div, .soldRegisteringNotify div, .UpdatePriceNotify div {
+.registeringNotify span, .soldRegisteringNotify span, .UpdatePriceNotify span {
 	display: none;
-}
 
-.registeringNotify .registeredSuccess, .soldRegisteringNotify .soldRegisteredSuccess, .UpdatePriceNotify .updatePriceSuccess {
-	background-color: #7EDD1E;
-	padding: 5px;
-	
-}*/
-
-.soldRegisteredError, .updatePriceError {
-	background-color: #FA2525;
-	padding: 5px;
 }
 
 /*.cancelRegistering, .cancelSoldRegistering, .cancelUpdatePrice {
 	margin: 10px;
 }*/
 
+
+
 .soldBookRegister, .registerBook, .customerForm {
+	position: relative;
 	background-color: #E0EBEB;
 	padding: 10px;
 }
 
 .updatePrice {
+	position: relative;
 	background-color: #E0EBE6;
 	padding: 10px;
 	margin-top: 100px;
 }
 
 .registeredSoldBooks, .registeredNewBook, .priceUpdated {
+	position: absolute;
+	bottom: 10%;
+	right: 20%;
 	background-color: #7EDD1E;
 	width:350px;
 	padding:10px;
@@ -113,25 +110,29 @@ ul li {
 }
 
 .bookFound {
+	position: absolute;
+	bottom: 10%;
+	right: 15%;
 	background-color: #FFFF19;
-	width:350px;
+	width:400px;
 	padding:10px;
 	margin-bottom:10px;
 }
- .report {
-	display: inline block;
-	background: white;
-	width: 70vw;
-	height: 300px;
-	z-index: 10;
-}
+ 
 .bookNoExist, .updatePriceError, .cancelSoldRegistering {
+	position: absolute;
+	bottom: 10%;
+	right: 20%;
 	background-color:#FA2525;
 	width:350px;
 	padding:10px;
 	margin-bottom:10px;
 }
 
-.search-listing span {
-	display: initial;
+.report {
+	display: inline-block;
+	background: white;
+	width: 70vw;
+	height: 300px;
+	z-index: 10;
 }
