@@ -24,8 +24,8 @@
          <section class="customerForm">
             <h2>Customer Search</h2>
             <select>
-                <option valuee="Search options">Search Options</option>
-                <option value="ISBN">Search by ISBN</option>
+                <option value="Search options">Search Options</option>
+                <option value="isbn">Search by ISBN</option>
                 <option value="title">Search by title</option>
                 <option value="author">Search by author</option>
             </select>
@@ -34,25 +34,26 @@
             <form class="isbnSearch">
                 <label for="isbn">ISBN:</label>
                 <input type="number" name="isbn">
+                <button class="searchByIsbn">Search by ISBN</button> 
             </form>
 
             <form class="titleSearch">
                     
                     <label for="title">Title:</label>
                     <input type="text" name="title">
+                    <button class="searchByTitle">Search by title</button> 
 
             </form>
             <form class="authorSearch">
                    
                     <label for="fname">Author First Name:</label>
                     <input type="text" name="fname">
-                    
                     <label for="lname">Author Last Name:</label>
                     <input type="text" name="lname">
+                    <button class="searchByAuthor">Search by author</button> 
             </form>
 
-                    <input type="submit" value="Submit">
-                </form>
+                
         </section>
 
 
