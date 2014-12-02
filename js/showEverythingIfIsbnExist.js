@@ -24,9 +24,27 @@ $(function() {
         }
         else {
          console.log( "showEverythingIfIsbnExist",data);
-          $("#title").val(data.title);
+         //var inTitle = $("#title").val();
+         
+         for (var i = 0; i < data.length; i++) {
+          $("#title").val(data[i].title);
+          $("#fname").val(data[i].fname);
+          $("#lname").val(data[i].lname);
+          $("#publisher_price").val(data[i].publisher_price);
+          $("#shelf_id").val(data[i].shelf_id);
+          $(".touchless").attr('disabled','disabled');
+
+         // var inTar = $(".everything");
+          //inTitle.append(data[i].title);
+          //inTar.append("<p>"+ data[i].title + "</p>");
+          //console.log("inTar", inTar);
+          //console.log("data inTar",data[i].title);
+
+         
+         }
+         // $("#title").val(data.title);
           // if only name attribute is title
-          $('input[name="title"]').val(data.title);
+          //$('input[name="title"]').val(data.title);
         
           console.log("Isbn already exists");
           $(".bookFound").show();
