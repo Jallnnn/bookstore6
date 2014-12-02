@@ -139,7 +139,7 @@ $(function() {
         }
         else {
           console.log("Isbn already exists");
-         // $(".bookFound").show();
+          $(".bookFound").show();
           registerDelivery(formInfo);
          
         }
