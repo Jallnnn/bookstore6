@@ -1,8 +1,14 @@
 $(function(){
+
+$("input").click(function(){
+  $("span").hide();
+});
 	
-	var info={};
+	
+	var info={}; var form;
 	$(".updatePriceInfo").submit(function(){
-		$(this).find("input").not("input[type='submit']").each(function(){
+		form=$(this);
+		form.find("input").not("input[type='submit']").each(function(){
 			info[this.name]=$(this).val();
 		});
 		
@@ -13,21 +19,21 @@ $(function(){
 	
 	function checkIsbnByAjax(info){
 	
-		console.log(info);
+	console.log(info)
 		$.ajax({
-			url:"../libs/sql-ajax-json.php",
-			dataType: "json",
-			data: {
-				sql: "sql/sql-questions.sql",
-				run: "check ISBN",
-				isbn: info.isbn
-			},
-			success:checkIsbnIsEmpty,
-			error: function(data) {
-				console.log("great error",data);
-				//$(".bookNoExist").show();
-			}
-		});
+      url:"../libs/sql-ajax-json.php",  
+      dataType: "json",
+      data: {
+        sql: "sql/sql-questions.sql",
+        run: "check ISBN",
+        isbn: info.isbn
+      },
+      success:checkIsbnIsEmpty,
+      error: function(data) {
+        console.log("Error",data);
+        
+      }
+    });
 	
 	}
 	
@@ -35,35 +41,36 @@ $(function(){
 	if ($.isEmptyObject(data))
        {
 			$(".priceUpdated").hide();
-			$(".bookNoExist").show();
+			$(".bookNoExist").css('display', 'block');
 			
        }else{
 			$(".bookNoExist").hide();
-			updatePrice(info);
+			form.find("input").not("input[type='submit']").val('');
+			updatePrice(info)
 			
-		}
+	 }
 	
 	
 	}
 
 	
 	function updatePrice(info){
-		$.ajax({
-			url:"../libs/sql-ajax-json.php",
-			dataType: "json",
-			data: {
-				sql: "sql/sql-questions.sql",
-				run: "uppdatePrice",
-				isbn: info["isbn"],
-				salePrice:info["salePrice"]
-		},
-		success: function(data) {
-			console.log("uppdatePrice success: ", data);
-			$(".priceUpdated").show();
-		},
-		error: function(data) {
-			console.log("great error",data);
-		}
+	  $.ajax({
+      url:"../libs/sql-ajax-json.php",  
+      dataType: "json",
+      data: {
+        sql: "sql/sql-questions.sql",
+        run: "uppdatePrice",
+        isbn: info["isbn"],
+        salePrice:info["salePrice"]
+      },
+      success: function(data) {
+        console.log("uppdatePrice success: ", data);
+		$(".priceUpdated").show();
+      },
+      error: function(data) {
+        console.log("Error",data);
+      }
     });
 	}
 	
