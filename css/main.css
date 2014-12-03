@@ -5,7 +5,7 @@ body {
 
 main {
   display: block;
-  width: 900px;
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -29,11 +29,9 @@ ul li {
  ul li a {
  	text-decoration:none;
  }
-
-  
  
 .registerBook, .soldBookRegister, .updatePrice, .customerForm {
-	margin: 60px;
+	margin: 60px auto;
 }
 
 .bookRegisteringInfo, .soldBookRegisteringInfo, .updatePriceInfo, .isbnSearch .titleSearch  {
@@ -86,12 +84,14 @@ isbnSearch {
 .soldBookRegister, .registerBook, .customerForm {
 	position: relative;
 	background-color: #E0EBEB;
+	width: 700px;
 	padding: 10px;
 }
 
 .updatePrice {
 	position: relative;
 	background-color: #E0EBE6;
+	width: 700px;
 	padding: 10px;
 	margin-top: 100px;
 }
@@ -99,7 +99,7 @@ isbnSearch {
 .registeredSoldBooks, .registeredNewBook, .priceUpdated {
 	position: absolute;
 	bottom: 10%;
-	right: 20%;
+	right: 10%;
 	background-color: #7EDD1E;
 	width:350px;
 	padding:10px;
@@ -109,7 +109,7 @@ isbnSearch {
 .bookFound {
 	position: absolute;
 	bottom: 10%;
-	right: 15%;
+	right: 10%;
 	background-color: #FFFF19;
 	width:400px;
 	padding:10px;
@@ -119,7 +119,7 @@ isbnSearch {
 .bookNoExist, .updatePriceError, .cancelSoldRegistering {
 	position: absolute;
 	bottom: 10%;
-	right: 20%;
+	right: 10%;
 	background-color:#FA2525;
 	width:350px;
 	padding:10px;
@@ -135,12 +135,26 @@ isbnSearch {
 }
 
 
-.search-listing {
-	margin: 30px;
-}
 
 .search-listing article {
 	padding: 10px;
-	background-color: ##E9F1F1;
+	background-color: #E0EBEB;
+}
+
+.search-listing article:nth-child(odd) {
+	background-color: #F3F7F7;
+}
+
+.search-listing article span {
+	display: inline-block;
+	width: 160px;
+}
+
+.search-listing article .searchPrice span, .searchShelf span {
+	width: 100px;
+}
+
+.search-column-names {
+  background-color: #B3BCBC !important;
 }
 
