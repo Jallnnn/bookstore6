@@ -30,10 +30,7 @@ ul li {
  	text-decoration:none;
  }
 
- /*span{
- display:none;
- }*/
- 
+  
  
 .registerBook, .soldBookRegister, .updatePrice, .customerForm {
 	margin: 60px;
@@ -50,7 +47,7 @@ ul li {
 	margin-bottom: 10px;
 }
 
-.isbnSearch {
+isbnSearch {
 	display:none;
 }
 
@@ -136,3 +133,14 @@ ul li {
 	height: 300px;
 	z-index: 10;
 }
+
+
+.search-listing {
+	margin: 30px;
+}
+
+.search-listing article {
+	padding: 10px;
+	background-color: ##E9F1F1;
+}
+

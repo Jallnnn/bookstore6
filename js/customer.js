@@ -1,6 +1,6 @@
 $(function() {
 
-  $(".customerInfo").submit(function() {
+  $(".isbnSearch").submit(function() {
 
     var formInfo = {};
 
@@ -8,11 +8,11 @@ $(function() {
       formInfo[this.name] = $(this).val();
     });
 
-    console.log(formInfo);
-    checkAuthorIfExists(formInfo);
-    checkIsbnExists(formInfo);
+    // console.log(formInfo);
+    // checkAuthorIfExists(formInfo);
+    // checkIsbnExists(formInfo);
 
-    showAll();
+    showAll(formInfo);
 
     return false;
   });
@@ -43,26 +43,26 @@ $(function() {
   
   }
 
-    function checkIsbnExists(formInfo){
+  //   function checkIsbnExists(){
   
-    $.ajax({
-      url:"../libs/sql-ajax-json.php",
-      dataType: "json",
-      data: {
-        sql: "sql/sql-questions.sql",
-        run: "check ISBN",
-        isbn: formInfo["isbn"]
-      },
-      success: showResult
-    });
+  //   $.ajax({
+  //     url:"../libs/sql-ajax-json.php",
+  //     dataType: "json",
+  //     data: {
+  //       sql: "sql/sql-questions.sql",
+  //       run: "check ISBN",
+  //       isbn: isbnSearch["isbn"]
+  //     },
+  //     success: showResult
+  //   });
   
-  }
+  // }
 
 
 
 
   
-  function showAll() {
+  function showAll(formInfo) {
 
     $.ajax({
       url:"../libs/sql-ajax-json.php",
@@ -70,6 +70,7 @@ $(function() {
       data: {
         sql: "sql/sql-questions.sql",
         run: "show search",
+        isbn: formInfo["isbn"]
       },
       success: showResult
     });
@@ -87,6 +88,11 @@ console.log("Please work: ", data);
 
       article.append('<span class="searchIsbn">' + data[i]["isbn"] + '</span>');
       article.append('<span class="searchTitle">' + data[i]["title"] + '</span>');
+      article.append('<span class="searchFname">' + data[i]["fname"] + '</span>');
+      article.append('<span class="searchLname">' + data[i]["lname"] + '</span>');
+      article.append('<span class="searchPrice">' + data[i]["price"] + '</span>');
+      // article.append('span class="searchInStock">' + data[i]["in_stock"] + '</span>');
+      article.append('<span class="searchShelf">' + data[i]["shelf_id"] + '</span>');
 
       $('.search-listing').append(article);
     }
