@@ -18,3 +18,6 @@
 5)select * ,(`delivered_qty` - `sold_qty`) AS `in_stock` from `books_deliverd_and_sold`
 5_1)CREATE VIEW in_stock AS (5)
  
+ 
+ 
+ SELECT SUM(qty),ISBN FROM `delivery` GROUP BY isbn
