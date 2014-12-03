@@ -12,7 +12,7 @@ $(function() {
     // checkAuthorIfExists(formInfo);
     // checkIsbnExists(formInfo);
 
-    showAll(formInfo);
+    showIsbnSearch(formInfo);
 
     return false;
   });
@@ -105,7 +105,7 @@ $(function() {
 
   function showResult(data) {
 
-console.log("Please work!: ", data);
+    console.log("Please work!: ", data);
 
     $('.search-listing article').not('.search-column-names').remove();
 
@@ -117,8 +117,8 @@ console.log("Please work!: ", data);
       article.append('<span class="searchTitle">' + data[i]["title"] + '</span>');
       article.append('<span class="searchFname">' + data[i]["fname"] + '</span>');
       article.append('<span class="searchLname">' + data[i]["lname"] + '</span>');
-      article.append('<span class="searchPrice">' + data[i]["price"] + '</span>');
-      // article.append('span class="searchInStock">' + data[i]["in_stock"] + '</span>');
+      article.append('<span class="searchPrice">' + data[i]["price_with_vat"] + '</span>');
+      article.append('<span class="searchInStock">' + data[i]["in_stock"] + '</span>');
       article.append('<span class="searchShelf">' + data[i]["shelf_id"] + '</span>');
 
       $('.search-listing').append(article);

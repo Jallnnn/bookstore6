@@ -4,7 +4,7 @@ $(function() {
 	var g_idAuthor;
 	var g_idShelf;
 
-	$(".bookRegisteringInfo").submit(function() {
+  	$(".bookRegisteringInfo").submit(function() {
 
 		var formInfo = {};
 
@@ -39,7 +39,6 @@ $(function() {
 				console.log("Author already exists: ", data);
 					g_idAuthor = data[0]["authorId"];
           checkShelfExists(formInfo);
-          // TODO add error css
         }
       },
        error: function(data) {
@@ -91,7 +90,6 @@ $(function() {
           console.log("Shelf already exists: ", data);
           g_idShelf = data[0]["shelf_id"];
           checkIsbnExists(formInfo);
-          // TODO add error css
         }
       },
       error: function(data) {
@@ -151,54 +149,6 @@ $(function() {
 	
 	}
 
-	function registerIsbn(formInfo){
-	
-		$.ajax({
-      url:"../libs/sql-ajax-json.php",
-      dataType: "json",
-      data: {
-        sql: "sql/sql-questions.sql",
-        run: "register isbn",
-        isbn: formInfo["isbn"],
-        title: JSON.stringify(formInfo["title"]),
-        idAuthor: g_idAuthor,
-        idShelf: JSON.stringify(g_idShelf)
-      },
-      success: function(data) {
-        console.log("registerIsbn success: ", data);
-        $(".registeredNewBook").show();
-        registerDelivery(formInfo);
-      },
-      error: function(data) {
-        console.log("great error",data);
-      }
-    });
-	
-	}
-
-	function registerDelivery(formInfo){
-	
-		$.ajax({
-      url:"../libs/sql-ajax-json.php",
-      dataType: "json",
-      data: {
-        sql: "sql/sql-questions.sql",
-        run: "register delivery",
-        isbn: formInfo["isbn"],
-        fprice: formInfo["fprice"],
-        qty: formInfo["qty"]
-      },
-      success: function(data) {
-        console.log("registerDelivery success: ", data);
-        mathsFprice(formInfo);
-      },
-      error: function(data) {
-        console.log("great error",data);
-      }
-    });
-	
-	}
-
   function mathsFprice(formInfo) {
 
     $.ajax({
@@ -219,5 +169,58 @@ $(function() {
       }
     });
   }
+
+  $(".CheckIfIsbnExist").click(function() {
+   var formInfo = {};
+   var $inputs = $('.bookRegisteringInfo :input');
+ 
+    $inputs.each(function() {
+      formInfo[this.name] = $(this).val();
+   
+    });
+ 
+    showEverythingIfIsbnExist(formInfo);
+    return false;
+  });
+
+    function showEverythingIfIsbnExist(formInfo) {
+      $.ajax({
+        url:"../libs/sql-ajax-json.php",
+        dataType: "json",
+        data: {
+          sql: "sql/sql-questions.sql",
+          run: "show everything",
+          isbn: formInfo["isbn"]
+        },
+        success: function(data) {
+           if ($.isEmptyObject(data)){
+          console.log("Isbn not found!");
+          registerIsbn(formInfo);
+          
+        }
+        else {
+         console.log( "showEverythingIfIsbnExist",data);
+         
+         for (var i = 0; i < data.length; i++) {
+          $("#title").val(data[i].title);
+          $("#fname").val(data[i].fname);
+          $("#lname").val(data[i].lname);
+          $("#fprice").val(data[i].publisher_price);
+          $("#shelf_id").val(data[i].shelf_id);
+          $(".touchless").attr('disabled','disabled');
+         }
+          console.log("Isbn already exists");
+          $(".bookFound").show();
+          registerDelivery(formInfo);
+        }
+         
+        },
+        error: function(data) {
+          console.log("Error",data);
+        }
+      });
+
+    }
+
  
 });

@@ -41,15 +41,15 @@ INSERT INTO history_price (isbn, salePrice ) VALUES ({isbn}, {salePrice});
 SELECT title, shelf_id, fname, lname, publisher_price FROM registery_book WHERE isbn={isbn};
 
 # show search
-SELECT * FROM current_price;
+SELECT * FROM customer_info;
 
 # show search-isbn
-SELECT * FROM current_price WHERE isbn = {isbn};
+SELECT * FROM customer_info WHERE isbn = {isbn};
 
 # show search-title
-SELECT * FROM current_price WHERE title = {title};
+SELECT * FROM customer_info WHERE title = {title};
 
 # show search-author
-SELECT * FROM current_price WHERE fname = {fname} OR lname = {lname};
+SELECT * FROM customer_info WHERE fname = {fname} OR lname = {lname};
 
 
