@@ -30,7 +30,7 @@ $(function() {
           $("#title").val(data[i].title);
           $("#fname").val(data[i].fname);
           $("#lname").val(data[i].lname);
-          $("#publisher_price").val(data[i].publisher_price);
+          $("#fprice").val(data[i].publisher_price);
           $("#shelf_id").val(data[i].shelf_id);
           $(".touchless").attr('disabled','disabled');
 
