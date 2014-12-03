@@ -17,50 +17,33 @@ $(function() {
     return false;
   });
    
- function checkAuthorIfExists(formInfo){
+ // function checkAuthorIfExists(formInfo){
   
-    $.ajax({
-      url:"../libs/sql-ajax-json.php",
-      dataType: "json",
-      data: {
-        sql: "sql/sql-questions.sql",
-        run: "check author",
-        fname: JSON.stringify(formInfo["fname"]),
-        lname: JSON.stringify(formInfo["lname"])
-      },
-      success: function(data) {
-        if ($.isEmptyObject(data)){
-          console.log("Author not found!");
-        }
-        else {
-        console.log("Author already exists: ", data);
-        }
-      },
-       error: function(data) {
-        console.log("Error",data);
-      }
-    });
+ //    $.ajax({
+ //      url:"../libs/sql-ajax-json.php",
+ //      dataType: "json",
+ //      data: {
+ //        sql: "sql/sql-questions.sql",
+ //        run: "check author",
+ //        fname: JSON.stringify(formInfo["fname"]),
+ //        lname: JSON.stringify(formInfo["lname"])
+ //      },
+ //      success: function(data) {
+ //        if ($.isEmptyObject(data)){
+ //          console.log("Author not found!");
+ //        }
+ //        else {
+ //        console.log("Author already exists: ", data);
+ //        }
+ //      },
+ //       error: function(data) {
+ //        console.log("Error",data);
+ //      }
+ //    });
   
-  }
+ //  }
 
-  //   function checkIsbnExists(){
   
-  //   $.ajax({
-  //     url:"../libs/sql-ajax-json.php",
-  //     dataType: "json",
-  //     data: {
-  //       sql: "sql/sql-questions.sql",
-  //       run: "check ISBN",
-  //       isbn: isbnSearch["isbn"]
-  //     },
-  //     success: showResult
-  //   });
-  
-  // }
-
-
-
-
   
   function showAll(formInfo) {
 
@@ -76,9 +59,53 @@ $(function() {
     });
   }
 
+  function showIsbnSearch(formInfo) {
+
+    $.ajax({
+      url:"../libs/sql-ajax-json.php",
+      dataType: "json",
+      data: {
+        sql: "sql/sql-questions.sql",
+        run: "show search-isbn",
+        isbn: formInfo["isbn"]
+      },
+      success: showResult
+    });
+  }
+
+  function showTitleSearch(formInfo) {
+    $.ajax({
+      url:"../libs/sql-ajax-json.php",
+      dataType: "json",
+      data: {
+        sql: "sql/sql-questions.sql",
+        run: "show search",
+        title: formInfo["title"]
+      },
+      success: showResult
+    });
+  }
+
+  function showAuthorSearch(formInfo) {
+
+    $.ajax({
+      url:"../libs/sql-ajax-json.php",
+      dataType: "json",
+      data: {
+        sql: "sql/sql-questions.sql",
+        run: "show search-author",
+        fname: formInfo["fname"],
+        lname: formInfo["lname"]
+      },
+      success: showResult
+    });
+  }
+
+
+
   function showResult(data) {
 
-console.log("Please work: ", data);
+console.log("Please work!: ", data);
 
     $('.search-listing article').not('.search-column-names').remove();
 

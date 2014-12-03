@@ -43,3 +43,13 @@ SELECT title, shelf_id, fname, lname, publisher_price FROM registery_book WHERE 
 # show search
 SELECT * FROM current_price;
 
+# show search-isbn
+SELECT * FROM current_price WHERE isbn = {isbn};
+
+# show search-title
+SELECT * FROM current_price WHERE title = {title};
+
+# show search-author
+SELECT * FROM current_price WHERE fname = {fname} OR lname = {lname};
+
+
