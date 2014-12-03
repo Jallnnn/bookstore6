@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/meyer-reset.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <!-- // <script src="../js/showEverythingIfIsbnExist.js"></script> -->
+    <script src="../js/showEverythingIfIsbnExist.js"></script>
     <script src="../js/delivery.js"></script>
 
 		
@@ -35,12 +35,12 @@
             <input class="touchless" type="text" name="fname" id ="fname" required>
             <label for="lname">Last Name:</label>
             <input class="touchless" type="text" name="lname" id ="lname" required>
-            <label for="publisher_price">Publisher price:</label>
+            <label for="fprice">Publisher price:</label>
             <input type="number" name="fprice" id ="fprice" required>
             <label for="qty">Quantity:</label>
             <input type="number" name="qty" id ="qty" required>
             <label for="shelf_id">Shelf:</label>
-            <input class="touchless"type="text" name="shelf_id" id ="shelf_id"required>
+            <input class="touchless"type="text" name="shelf_id" id ="shelf_id" required>
 
 
             <input type="submit" value="Submit">
@@ -48,7 +48,8 @@
 
         <section class="registeringNotify">
           <span class="registeredNewBook">A new book has been registered!</span>
-          <span class="bookFound">Book already exists. Price and quantity registered!</span>
+          <span class="bookFound">Book already exists.</span>
+          <span class="registeredPriceQty">Price and quantity registered!</span>
         </section>  
           
           <!-- <button class="cancelRegistering">Cancel</button> -->

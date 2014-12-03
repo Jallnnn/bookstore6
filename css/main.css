@@ -70,9 +70,8 @@ isbnSearch {
 
 
 
-.registeringNotify span, .soldRegisteringNotify span, .UpdatePriceNotify span {
+.registeringNotify span, .soldRegisteringNotify span, .UpdatePriceNotify span, .registeredPriceQty span {
 	display: none;
-
 }
 
 /*.cancelRegistering, .cancelSoldRegistering, .cancelUpdatePrice {
@@ -98,7 +97,7 @@ isbnSearch {
 
 .registeredSoldBooks, .registeredNewBook, .priceUpdated {
 	position: absolute;
-	bottom: 10%;
+	bottom: 20%;
 	right: 10%;
 	background-color: #7EDD1E;
 	width:350px;
@@ -108,12 +107,22 @@ isbnSearch {
 
 .bookFound {
 	position: absolute;
+	top: 20%;
+	right: 10%;
+	background-color: #FFFF19;
+	width: 300px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.registeredPriceQty {
+	position: absolute;
 	bottom: 10%;
 	right: 10%;
 	background-color: #FFFF19;
-	width:400px;
-	padding:10px;
-	margin-bottom:10px;
+	width: 300px;
+	padding: 10px;
+	margin-bottom: 10px;
 }
  
 .bookNoExist, .updatePriceError, .cancelSoldRegistering {
