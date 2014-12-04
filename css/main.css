@@ -28,19 +28,27 @@ ul li {
 
  ul li a {
  	text-decoration:none;
+ 	background-color: #B3BCBC;
+ 	color: #000;
+ 	padding: 10px;
  }
+
+a:hover {
+	background-color: #95CDC0;
+}
+
  
 .registerBook, .soldBookRegister, .updatePrice, .customerForm {
 	margin: 60px auto;
 }
 
-.bookRegisteringInfo, .soldBookRegisteringInfo, .updatePriceInfo, .isbnSearch .titleSearch  {
+.bookRegisteringInfo, .soldBookRegisteringInfo, .updatePriceInfo, .customerFormInfo {
 	width: 30%;
  	margin: 20px 30px;
  	display: inline-block;
 }
 
-.bookRegisteringInfo input, .soldBookRegisteringInfo input, .updatePriceInfo input, .isbnSearch input, .titleSearch input {
+.bookRegisteringInfo input, .soldBookRegisteringInfo input, .updatePriceInfo input, .customerFormInfo input {
 	display: block;
 	margin-bottom: 10px;
 }
