@@ -34,7 +34,7 @@ ul li {
  }
 
 a:hover {
-	background-color: #95CDC0;
+	background-color: #E0EBE6;
 }
 
  
@@ -86,6 +86,9 @@ isbnSearch {
 	margin: 10px;
 }*/
 
+.CheckIfIsbnExist {
+	margin-bottom: 10px;
+}
 
 
 .soldBookRegister, .registerBook, .customerForm {
