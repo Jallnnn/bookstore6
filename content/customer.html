@@ -15,7 +15,7 @@
         <li><a href="customer.html">Customer Search</a></li>
         <li><a href="delivery.html">Delivery</a></li>
         <li><a href="sales_price.html">Sales & Price Update</a></li>
-        <li><a href="report.html">Report</a></li>
+        <!-- <li><a href="report.html">Report</a></li> -->
       </ul>
     </header>
 
@@ -24,18 +24,18 @@
          <section class="customerForm">
             <h2>Customer Search</h2>
 
-            <section class="customerFormInfo">
+            <!-- <section class="customerFormInfo">
                 <select class="optionsMenu">
                     <option value="Search options">Search Options</option>
                     <option value="isbn">Search book by ISBN</option>
-                    <option value="title">Search book by title</option>
-                    <option value="author">Search book by author</option>
-                </select>
+                    <option value="title">Search book by Title</option>
+                    <option value="author">Search book by Author</option>
+                </select> -->
 
                 <form class="isbnSearch">
                     <label for="isbn">ISBN:</label>
                     <input type="number" name="isbn">
-                    <button class="searchByIsbn">Search by ISBN</button> 
+                    <input type="submit" value="Search by ISBN"> 
                 </form>
 
                 <form class="titleSearch">
@@ -54,13 +54,14 @@
                         <input type="text" name="lname">
                         <button class="searchByAuthor">Search by author</button> 
                 </form>
+
+                <section class="customerSearchNotify">
+                    <span class="noMatch">Sorry, no match found!</span>
+                </section>
             </section>
 
               
-        </section>
-
-
-        
+        </section>        
 
         <section class="search-listing">
             <h2>Search Result</h2>

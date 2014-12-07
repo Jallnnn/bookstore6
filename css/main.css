@@ -52,33 +52,29 @@ a:hover {
 	display: block;
 	margin-bottom: 10px;
 }
-
-isbnSearch {
-	display:none;
+.isbnSearch {
+	/*display:none;*/
+	margin-top: 15px;
 }
 
 .titleSearch {
-	display:none;
+	/*display:none;*/
 	margin-top:15px;
 }
 
 .authorSearch {
-	display:none;
+/*	display:none;*/
 	width:160px;
 	margin-top:15px;
 	margin-bottom:15px;
-
 }
 
-.optionsMenu {
+/*.optionsMenu {
 	margin-bottom:15px;
-}
+}*/
 
 
-
-
-
-.registeringNotify span, .soldRegisteringNotify span, .UpdatePriceNotify span, .registeredPriceQty span {
+.registeringNotify span, .soldRegisteringNotify span, .UpdatePriceNotify span, .registeredPriceQty span, .customerSearchNotify span {
 	display: none;
 }
 
@@ -136,7 +132,7 @@ isbnSearch {
 	margin-bottom: 10px;
 }
  
-.bookNoExist, .updatePriceError, .cancelSoldRegistering {
+.bookNoExist, .updatePriceError, .cancelSoldRegistering, .noMatch {
 	position: absolute;
 	bottom: 10%;
 	right: 10%;
@@ -146,16 +142,14 @@ isbnSearch {
 	margin-bottom:10px;
 }
 
-.report {
+/*.report {
 	display: inline-block;
 	background: white;
 	width: 500px;
 	height: 300px;
 	z-index: 10;
 }
-
-
-
+*/
 .search-listing article {
 	padding: 10px;
 	background-color: #E0EBEB;

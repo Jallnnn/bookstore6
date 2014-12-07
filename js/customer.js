@@ -1,34 +1,55 @@
 $(function() {
 
-  $(".customerForm").submit(function() {
+  // Global Variable
+  var form;
+
+  $("input").click(function(){
+    $("span").hide();
+  });
+
+  $(".isbnSearch").submit(function() {
 
     var formInfo = {};
+    form = $(this);
 
-    $(this).find("input").not("input[type='submit']").each(function() {
+    form.find("input").not("input[type='submit']").each(function() {
       formInfo[this.name] = $(this).val();
     });
-
     
     showIsbnSearch(formInfo);
+    
+    return false;
+  });
+
+  $(".titleSearch").submit(function() {
+
+    var formInfo = {};
+    form = $(this);
+
+    form.find("input").not("input[type='submit']").each(function() {
+      formInfo[this.name] = $(this).val();
+    });
+    
+    showTitleSearch(formInfo);
+    
+    return false;
+  });
+
+  $(".authorSearch").submit(function() {
+
+    var formInfo = {};
+    form = $(this);
+
+    form.find("input").not("input[type='submit']").each(function() {
+      formInfo[this.name] = $(this).val();
+    });
+    
+    showAuthorSearch(formInfo);
 
     return false;
   });
    
    
-  function showAll(formInfo) {
-
-    $.ajax({
-      url:"../libs/sql-ajax-json.php",
-      dataType: "json",
-      data: {
-        sql: "sql/sql-questions.sql",
-        run: "show search",
-        isbn: formInfo["isbn"]
-      },
-      success: showResult
-    });
-  }
-
   function showIsbnSearch(formInfo) {
 
     $.ajax({
@@ -39,7 +60,19 @@ $(function() {
         run: "show search-isbn",
         isbn: formInfo["isbn"]
       },
-      success: showResult
+      success: function(data) {
+        if ($.isEmptyObject(data)){
+          // console.log("Book not found!");
+          $(".noMatch").show();
+        }
+        else {
+          form.find("input").not("input[type='submit']").val('');
+          showResult(data);
+        }
+      },
+       error: function(data) {
+        // console.log("Error",data);
+      }
     });
   }
 
@@ -49,10 +82,22 @@ $(function() {
       dataType: "json",
       data: {
         sql: "sql/sql-questions.sql",
-        run: "show search",
-        title: formInfo["title"]
+        run: "show search-title",
+        title:  JSON.stringify("%" + formInfo["title"] + "%")
       },
-      success: showResult
+      success: function(data) {
+        if ($.isEmptyObject(data)){
+          // console.log("Title not found!");
+          $(".noMatch").show();
+        }
+        else {
+          form.find("input").not("input[type='submit']").val('');
+          showResult(data);
+        }
+      },
+       error: function(data) {
+        // console.log("Error",data);
+      }
     });
   }
 
@@ -64,18 +109,28 @@ $(function() {
       data: {
         sql: "sql/sql-questions.sql",
         run: "show search-author",
-        fname: formInfo["fname"],
-        lname: formInfo["lname"]
+        fname:  JSON.stringify(formInfo["fname"]),
+        lname:  JSON.stringify(formInfo["lname"])
       },
-      success: showResult
+      success: function(data) {
+        if ($.isEmptyObject(data)){
+          // console.log("Name not found!");
+          $(".noMatch").show();
+        }
+        else {
+          form.find("input").not("input[type='submit']").val('');
+          showResult(data);
+        }
+      },
+       error: function(data) {
+        // console.log("Error",data);
+      }
     });
   }
 
-
-
   function showResult(data) {
 
-    console.log("Please work!: ", data);
+    // console.log("Please work!: ", data);
 
     $('.search-listing article').not('.search-column-names').remove();
 
@@ -97,6 +152,3 @@ $(function() {
   }
 
 });
-
-
-

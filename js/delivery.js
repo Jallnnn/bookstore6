@@ -4,7 +4,7 @@ $(function() {
 	var g_idAuthor;
 	var g_idShelf;
 
-  	$(".bookRegisteringInfo").submit(function() {
+  $(".bookRegisteringInfo").submit(function() {
 
 		var formInfo = {};
 
@@ -12,7 +12,6 @@ $(function() {
 			formInfo[this.name] = $(this).val();
 		});
 
-		console.log(formInfo);
 		checkAuthorExists(formInfo);
 
 		return false;

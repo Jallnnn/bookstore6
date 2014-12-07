@@ -42,7 +42,7 @@ $("input").click(function(){
        }else{
 			$(".cancelSoldRegistering").hide();
 			form.find("input").not("input[type='submit']").val('');
-			updatePrice(info)
+			updateSales(info)
 			
 	 }
 	
@@ -50,7 +50,7 @@ $("input").click(function(){
 	}
 
 	
-	function updatePrice(info){
+	function updateSales(info){
 	  $.ajax({
       url:"../libs/sql-ajax-json.php",  
       dataType: "json",
@@ -61,9 +61,8 @@ $("input").click(function(){
         qty:info["qty"]
       },
       success: function(data) {
-        console.log("uppdatePrice success: ", data);
-		console.log(info.isbn)
-		$(".registeredSoldBooks").show().text( info.qty +' book with ISBN: "' +info.isbn+ ' "have registered');
+        console.log(info.isbn)
+		$(".registeredSoldBooks").show().text( info.qty +' book with ISBN: ' +info.isbn+ ' has been registered!');
       },
       error: function(data) {
         console.log("Error",data);
