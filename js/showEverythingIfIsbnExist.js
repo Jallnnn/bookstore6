@@ -20,6 +20,7 @@ $(function() {
         success: function(data) {
            if ($.isEmptyObject(data)){
           console.log("Isbn not found!");
+          $(".bookFound").show();
           
         }
         else {

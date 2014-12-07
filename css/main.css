@@ -132,7 +132,7 @@ a:hover {
 	margin-bottom: 10px;
 }
  
-.bookNoExist, .updatePriceError, .cancelSoldRegistering, .noMatch {
+.bookNoExist, .updatePriceError, .cancelSoldRegistering, .noMatch, .noIsbnFound {
 	position: absolute;
 	bottom: 10%;
 	right: 10%;
