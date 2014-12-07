@@ -1,3 +1,7 @@
+/*
+
+Not done.
+
 $(function() {
 
 	$(".earningsForDate").click(function() {
@@ -38,3 +42,5 @@ $(function() {
 	}
 
 });
+
+*/
