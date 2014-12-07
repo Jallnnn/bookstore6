@@ -4,7 +4,7 @@ $(function() {
   var form;
 
   $("input").click(function(){
-    $("span").hide();
+    $(".noMatch").hide();
   });
 
   $(".isbnSearch").submit(function() {
