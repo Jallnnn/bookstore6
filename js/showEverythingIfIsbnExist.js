@@ -3,7 +3,7 @@ $(function() {
   $(".CheckIfIsbnExist").click(function() {
     var formIsbn = {};
     formIsbn["isbn"] = $(".bookRegisteringInfo input[name='isbn']").val();
-    console.log(formIsbn);
+    // console.log(formIsbn);
     showEverythingIfIsbnExist(formIsbn);
     return false;
   });
@@ -19,12 +19,15 @@ $(function() {
         },
         success: function(data) {
            if ($.isEmptyObject(data)){
-          console.log("Isbn not found!");
+
+          // console.log("Isbn not found!");
           $(".bookFound").show();
+          // console.log("Isbn not found!");
+
           
         }
         else {
-         console.log( "showEverythingIfIsbnExist",data);
+         // console.log( "showEverythingIfIsbnExist",data);
          
          
          for (var i = 0; i < data.length; i++) {
@@ -40,7 +43,7 @@ $(function() {
          }
          
         
-          console.log("Isbn already exists");
+          // console.log("Isbn already exists");
           $(".bookFound").show();
           
          
@@ -48,7 +51,7 @@ $(function() {
          
         },
         error: function(data) {
-          console.log("Error",data);
+          // console.log("Error",data);
         }
       });
 

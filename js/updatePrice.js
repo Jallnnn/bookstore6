@@ -19,7 +19,7 @@ $("input").click(function(){
 	
 	function checkIsbnByAjax(info){
 	
-	console.log(info)
+	// console.log(info)
 		$.ajax({
       url:"../libs/sql-ajax-json.php",  
       dataType: "json",
@@ -30,7 +30,7 @@ $("input").click(function(){
       },
       success:checkIsbnIsEmpty,
       error: function(data) {
-        console.log("Error",data);
+        // console.log("Error",data);
         
       }
     });
@@ -65,11 +65,11 @@ $("input").click(function(){
         salePrice:info["salePrice"]
       },
       success: function(data) {
-        console.log("uppdatePrice success: ", data);
+        // console.log("uppdatePrice success: ", data);
 		$(".priceUpdated").show();
       },
       error: function(data) {
-        console.log("Error",data);
+        // console.log("Error",data);
       }
     });
 	}

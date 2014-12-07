@@ -26,7 +26,7 @@ $("input").click(function(){
       },
       success:checkIsbnIsEmpty,
       error: function(data) {
-        console.log("Error",data);
+        // console.log("Error",data);
         
       }
     });
@@ -61,11 +61,11 @@ $("input").click(function(){
         qty:info["qty"]
       },
       success: function(data) {
-        console.log(info.isbn)
+        // console.log(info.isbn)
 		$(".registeredSoldBooks").show().text( info.qty +' book with ISBN: ' +info.isbn+ ' has been registered!');
       },
       error: function(data) {
-        console.log("Error",data);
+        // console.log("Error",data);
       }
     });
 	}

@@ -31,17 +31,17 @@ $(function() {
 			},
 			success: function(data) {
 				if ($.isEmptyObject(data)){
-					console.log("Author not found!");
+					// console.log("Author not found!");
 					registerAuthor(formInfo);
 				}
 				else {
-				console.log("Author already exists: ", data);
+				// console.log("Author already exists: ", data);
 					g_idAuthor = data[0]["authorId"];
           checkShelfExists(formInfo);
         }
       },
        error: function(data) {
-        console.log("Error",data);
+        // console.log("Error",data);
       }
     });
 	
@@ -60,11 +60,11 @@ $(function() {
           lname: JSON.stringify(formInfo["lname"])
         },
         success: function(data) {
-          console.log("registerAuthor success: ", data);
+          // console.log("registerAuthor success: ", data);
           checkAuthorExists(formInfo);
         },
         error: function(data){
-          console.log("Great error:",data);
+          // console.log("Great error:",data);
         }
       });
 
@@ -82,17 +82,17 @@ $(function() {
       },
       success: function(data) {
         if ($.isEmptyObject(data)){
-          console.log("Shelf not found!");
+          // console.log("Shelf not found!");
           registerShelf(formInfo);
         }
         else {
-          console.log("Shelf already exists: ", data);
+          // console.log("Shelf already exists: ", data);
           g_idShelf = data[0]["shelf_id"];
           checkIsbnExists(formInfo);
         }
       },
       error: function(data) {
-        console.log("Error",data);
+        // console.log("Error",data);
       }
     });
 	
@@ -109,11 +109,11 @@ $(function() {
         shelf_id: JSON.stringify(formInfo["shelf_id"])
       },
       success: function(data) {
-        console.log("registerShelf success: ", data);
+        // console.log("registerShelf success: ", data);
         checkShelfExists(formInfo);
       },
       error: function(data){
-        console.log("Great error:",data);
+        // console.log("Great error:",data);
       }
     });
 
@@ -131,17 +131,17 @@ $(function() {
       },
       success: function(data) {
         if ($.isEmptyObject(data)){
-          console.log("Isbn not found!");
+          // console.log("Isbn not found!");
           registerIsbn(formInfo);
         }
         else {
-          console.log("Isbn already exists");
+          // console.log("Isbn already exists");
           registerDelivery(formInfo);
          
         }
       },
       error: function(data) {
-        console.log("Error",data);
+        // console.log("Error",data);
       }
     });
 	
@@ -161,12 +161,12 @@ $(function() {
         idShelf: JSON.stringify(g_idShelf)
       },
       success: function(data) {
-        console.log("registerIsbn success: ", data);
+        // console.log("registerIsbn success: ", data);
         $(".registeredNewBook").show();
         registerDelivery(formInfo);
       },
       error: function(data) {
-        console.log("great error",data);
+        // console.log("great error",data);
       }
     });
   
@@ -185,12 +185,12 @@ $(function() {
         qty: formInfo["qty"]
       },
       success: function(data) {
-        console.log("registerDelivery success: ", data);
+        // console.log("registerDelivery success: ", data);
         $(".registeredPriceQty").show();
         mathsFprice(formInfo);
       },
       error: function(data) {
-        console.log("great error",data);
+        // console.log("great error",data);
       }
     });
   
@@ -208,11 +208,11 @@ $(function() {
         isbn: formInfo["isbn"]
       },
       success: function(data) {
-        console.log("mathsFprice success: ", data);
+        // console.log("mathsFprice success: ", data);
        
       },
       error: function(data) {
-        console.log("Error: ", data);
+        // console.log("Error: ", data);
       }
     });
   }
